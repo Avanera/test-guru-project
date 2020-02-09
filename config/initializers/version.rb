@@ -1,4 +1,4 @@
-Class TestGuru
+module TestGuru
 VERSION = '0.1.0'
   def self.version
     VERSION
