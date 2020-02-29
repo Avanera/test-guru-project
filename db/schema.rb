@@ -10,7 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_02_29_091951) do
+ActiveRecord::Schema.define(version: 2020_02_29_092343) do
+
+  create_table "answers", force: :cascade do |t|
+    t.boolean "correct"
+    t.integer "question_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
 
   create_table "categories", force: :cascade do |t|
     t.integer "title", null: false
@@ -33,5 +40,6 @@ ActiveRecord::Schema.define(version: 2020_02_29_091951) do
     t.integer "category_id"
   end
 
+  add_foreign_key "answers", "questions"
   add_foreign_key "questions", "tests"
 end
