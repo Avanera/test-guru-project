@@ -3,6 +3,6 @@ class User < ApplicationRecord
     puts self.class
     .joins("INNER JOIN tests ON users.test_id = tests.id")
     .where('level = ? AND users.id = ?', level, self.id)
-    .select('title')
+    .pluck('title')
   end
 end
