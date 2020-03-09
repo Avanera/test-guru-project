@@ -1,8 +1,7 @@
 class User < ApplicationRecord
-  def tests_of(level)
-    puts self.class
-    .joins("INNER JOIN tests ON users.test_id = tests.id")
-    .where('level = ? AND users.id = ?', level, self.id)
+  def tests_of_level(level)
+    Test.joins("JOIN tests_users ON tests.id = tests_users.test_id")
+    .where('level = ? AND user_id = ?', level, self.id)
     .pluck('title')
   end
 end

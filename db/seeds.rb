@@ -11,13 +11,13 @@ Test.create(title: "Rails", level: 2)
 Test.create(title: "HTML")
 Test.create(title: "Machine Learning")
 
-User.create(name: "Sam", test_id: 1)
-User.create(name: "Man", test_id: 2)
+User.create(name: "Sam")
+User.create(name: "Man")
 
 Category.create(title: "Programming")
 
 Question.create(body: "Что такое отношение?")
 
-Answer.create(option: "Взаимная связь разных величин, предметов, действий.")
-Answer.create(option: "Фундаментальное понятие реляционной модели данных.")
-Answer.create(option: "Неправильный ответ")
+Answer.create(body: "Взаимная связь разных величин, предметов, действий.", correct: true)
+Answer.create(body: "Фундаментальное понятие реляционной модели данных.", correct: true)
+Answer.create(body: "Неправильный ответ")
