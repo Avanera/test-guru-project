@@ -6,18 +6,18 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-Category.create(title: "Programming")
+category1 = Category.create(title: "Programming")
 
-User.create(name: "Sam")
-User.create(name: "Man")
+user1 = User.create(name: "Sam")
+user2 = User.create(name: "Man")
 
-Test.create(title: "Ruby", level: 1, category_id: 1, user_id:2)
-Test.create(title: "Rails", level: 2, category_id: 1, user_id:2)
-Test.create(title: "HTML", category_id: 1, user_id:2)
-Test.create(title: "Machine Learning", category_id: 1, user_id:2)
+test1 = Test.create(title: "Ruby", level: 1, category_id: category1.id, user_id: user2.id)
+test2 = Test.create(title: "Rails", level: 2, category_id: category1.id, user_id: user2.id)
+test3 = Test.create(title: "HTML", category_id: category1.id, user_id: user2.id)
+test4 = Test.create(title: "Machine Learning", category_id: category1.id, user_id: user2.id)
 
-Question.create(body: "Что такое отношение?", test_id: 2)
+question1 = Question.create(body: "Что такое отношение?", test_id: test2.id)
 
-Answer.create(body: "Взаимная связь разных величин, предметов, действий.", correct: true, question_id: 1)
-Answer.create(body: "Фундаментальное понятие реляционной модели данных.", correct: true, question_id: 1)
-Answer.create(body: "Неправильный ответ.", question_id: 1)
+answer1 = Answer.create(body: "Взаимная связь разных величин, предметов, действий.", correct: true, question_id: question1.id)
+answer2 = Answer.create(body: "Фундаментальное понятие реляционной модели данных.", correct: true, question_id: question1.id)
+answer3 = Answer.create(body: "Неправильный ответ.", question_id: question1.id)
