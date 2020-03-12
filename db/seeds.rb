@@ -8,8 +8,8 @@
 
 category1 = Category.create(title: "Programming")
 
-user1 = User.create(name: "Sam")
-user2 = User.create(name: "Man")
+user1 = User.create(name: "Sam", email: "kuku@mail.ru", password: "secret")
+user2 = User.create(name: "Man", email: "raz@mail.ru", password: "secret")
 
 test1 = Test.create(title: "Ruby", level: 1, category_id: category1.id, user_id: user2.id)
 test2 = Test.create(title: "Rails", level: 2, category_id: category1.id, user_id: user2.id)
