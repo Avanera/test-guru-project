@@ -10,8 +10,6 @@ class Test < ApplicationRecord
 
   validates :level, numericality: { only_integer: true, greater_than_or_equal_to: 0 }
 
-  # validate :validate_max_level
-
   scope :easy, -> { where(level: (0..1)) }
   scope :medium, -> { where(level: (2..4)) }
   scope :hard, -> { where(level: (5..Float::INFINITY)) }
@@ -21,15 +19,5 @@ class Test < ApplicationRecord
   # def self.titles_of_category(category)
   #   joins("JOIN categories ON tests.category_id = categories.id")
   #   .where("categories.title = ?", category).order(title: :desc).pluck(:title)
-  # end
-
-  private
-
-  def validate_max_level
-      errors.add(:level) if level.to_i > 10
-  end
-
-  def ruby_test?
-    title.match(/Ruby/i)
-  end
+  # # end
 end
