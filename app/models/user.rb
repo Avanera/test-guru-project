@@ -5,9 +5,9 @@ class User < ApplicationRecord
 
   validates :email, presence: true
 
-  def tests_of_level(lev)
+  def tests_of_level(level)
     Test.joins(:tests_users)
-    .where(level: lev)
+    .where(level: level)
     .where(tests_users: { user_id: self.id })
     .pluck('title')
   end
