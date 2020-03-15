@@ -1,15 +1,16 @@
 class QuestionsController < ApplicationController
 
   before_action :find_test, only: %i[create new destroy index]
-  before_action :find_question, only: %i[show]
+  before_action :find_question, only: %i[show destroy]
   before_action :find_questions, only: %i[index]
 
   rescue_from ActiveRecord::RecordNotFound, with: :rescue_with_question_not_found
 
   def index
    # render inline: '<%= @questions.map { |question| question.body } %>'
-      respond_to do |format|
-      format.json {render json: { tests: Test.all } }
+    @questions = Question.where("test_id = ?", params[:test_id])
+    respond_to do |format|
+      format.json {render json: { questions: @questions } }
       format.html 
     end
   end
@@ -19,13 +20,18 @@ class QuestionsController < ApplicationController
   end
 
   def create
-    question = @test.questions.create(question_params)
+    question = @test.questions.new(question_params)
 
-    render plain: question.inspect
+    if question.save
+      redirect_to @test
+    else
+      render 'new'
+    end
+
+    #render plain: question.inspect
   end
 
   def destroy
-    question = @test.questions.find(params[:id])
     question.destroy
     redirect_to tests_path
   end
@@ -46,10 +52,6 @@ class QuestionsController < ApplicationController
 
   def find_question
     @question = Question.find(params[:id])
-  end
-
-  def find_questions
-    @questions = Question.where("test_id = ?", params[:test_id])
   end
 
   def rescue_with_question_not_found

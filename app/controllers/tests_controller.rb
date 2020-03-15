@@ -28,9 +28,15 @@ class TestsController < ApplicationController
 
     # render plain: result.join("\n")
 
-    test = Test.create(test_params)
+    test = Test.new(test_params)
 
-    render plain: test.inspect
+    if test.save!
+      redirect_to @tests
+    else
+      render 'new'
+    end
+
+    # render plain: test.inspect
   end
 
   def search
@@ -44,15 +50,18 @@ class TestsController < ApplicationController
   end
 
   def update
-    @test.update(test_params) # не работает метод
-
-    render plain: test.inspect
+    if @test.update
+      redirect_to @tests
+    else
+      render 'edit'
+    end
+   # render plain: test.inspect
   end
 
   private
 
   def test_params
-    params.require(:test).permit(:title, :level)
+    params.require(:test).permit(:title, :level, :category, :author)
   end
 
   def find_test
