@@ -1,21 +1,22 @@
 class TestsController < ApplicationController
 
-  before_action :find_test, only: %i[show]
+  before_action :find_test, only: %i[show edit update]
   after_action :send_log_message
   around_action :log_execute_time
 
   rescue_from ActiveRecord::RecordNotFound, with: :rescue_with_test_not_found
 
   def index
-    result = ["Class: #{params.class}", "Parameters: #{params.inspect}"]
+    @tests = Test.all
+    # result = ["Class: #{params.class}", "Parameters: #{params.inspect}"]
 
-    render plain: result.join("\n")
+    # render plain: result.join("\n")
   end
 
   def show
     # title = Test.first.title
     # render inline: '<%= title %>'
-    render inline: '<%= @test.title %>'
+    # render inline: '<%= @test.title %>'
   end
 
   def new
@@ -36,6 +37,16 @@ class TestsController < ApplicationController
     result = ["Class: #{params.class}", "Parameters: #{params.inspect}"]
 
     render plain: result.join("\n")
+  end
+
+  def edit
+
+  end
+
+  def update
+    @test.update(test_params) # не работает метод
+
+    render plain: test.inspect
   end
 
   private
@@ -64,4 +75,3 @@ class TestsController < ApplicationController
     render plain: 'Test was not found'
   end
 end
- 
