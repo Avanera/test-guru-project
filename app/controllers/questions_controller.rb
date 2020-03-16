@@ -2,13 +2,12 @@ class QuestionsController < ApplicationController
 
   before_action :find_test, only: %i[create new destroy index]
   before_action :find_question, only: %i[show destroy]
-  before_action :find_questions, only: %i[index]
 
   rescue_from ActiveRecord::RecordNotFound, with: :rescue_with_question_not_found
 
   def index
    # render inline: '<%= @questions.map { |question| question.body } %>'
-    @questions = Question.where("test_id = ?", params[:test_id])
+    @questions = @test.questions
     respond_to do |format|
       format.json {render json: { questions: @questions } }
       format.html 
