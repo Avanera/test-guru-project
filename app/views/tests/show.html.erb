@@ -1,0 +1,16 @@
+<p>
+  <strong>Title:</strong>
+  <%= @test.title %>
+</p>
+
+<p>
+  <strong>Level:</strong>
+  <%= @test.level %>
+</p>
+
+<p>
+  <strong>Questions:</strong>
+  <%= @test.questions.map { |question| question.body} %>
+</p>
+
+<%= link_to 'Back', tests_path %>
