@@ -1,6 +1,6 @@
 class TestsController < ApplicationController
 
-  before_action :find_test, only: %i[show edit update]
+  before_action :find_test, only: %i[show edit update destroy]
   after_action :send_log_message
   around_action :log_execute_time
 
@@ -20,7 +20,7 @@ class TestsController < ApplicationController
   end
 
   def new
-
+    @test = Test.new
   end
 
   def create
@@ -28,12 +28,12 @@ class TestsController < ApplicationController
 
     # render plain: result.join("\n")
 
-    test = Test.new(test_params)
+    @test = Test.new(test_params)
 
-    if test.save!
-      redirect_to @tests
+    if @test.save
+      redirect_to @test
     else
-      render 'new'
+      render :new
     end
 
     # render plain: test.inspect
@@ -50,18 +50,23 @@ class TestsController < ApplicationController
   end
 
   def update
-    if @test.update
-      redirect_to @tests
+    if @test.update(test_params)
+      redirect_to @test
     else
-      render 'edit'
+      render :edit
     end
    # render plain: test.inspect
+  end
+
+  def destroy
+    @test.destroy
+    redirect_to tests_path
   end
 
   private
 
   def test_params
-    params.require(:test).permit(:title, :level, category_id: Category.find_by(params[:title]).id, user_id: User.find_by(name: "Sam").id)
+    params.require(:test).permit(:title, :level, :category_id)
   end
 
   def find_test
