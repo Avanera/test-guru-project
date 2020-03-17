@@ -1,0 +1,7 @@
+<h1><%= @question.body %> </h1>
+<%= link_to 'Edit', edit_test_question_path(@test, @question) %> |
+<%= link_to 'Delete',
+            test_question_path(@test, @question),
+            method: :delete,
+            data: { confirm: 'Are you sure?'} %> |
+<%= link_to 'Back', test_questions_path %>

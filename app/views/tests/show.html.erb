@@ -1,17 +1,21 @@
-<p>
-  <strong>Title:</strong>
-  <%= @test.title %>
-</p>
+<table border="1" cellpadding="20" cellspacing="0">
+<tr>
+<td>Title:</td>
+<td colspan="3"> <%= @test.title %> </td>
+</tr>
+<tr>
+<td>Level:</td>
+<td colspan="3"> <%= @test.level %> </td>
+</tr>
+<tr>
+<td rowspan="0">Questions:</td>
+<td>
+    <ul>
+      <% @test.questions.each do |question| %>
+        <li><%= link_to "#{question.body}", test_question_path(@test, question) %></li>
+      <% end %>
+    </ul>
+</td>
+</tr>
 
-<p>
-  <strong>Level:</strong>
-  <%= @test.level %>
-</p>
-
-<p>
-  <strong>Questions:</strong>
-  <%= @test.questions.map { |question| question.body} %>
-</p>
-
-<%= link_to 'Edit', edit_test_path(@test) %> |
-<%= link_to 'Back', tests_path %>
+</table>

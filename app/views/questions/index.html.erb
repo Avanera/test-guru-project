@@ -1,8 +1,9 @@
 <h1>Listing Questions</h1>
-<%= link_to 'New question', new_test_question_path %>
-<table>
+<h3><%= link_to 'New question', new_test_question_path %></h3>
+<table border="1" cellpadding="7" cellspacing="0">
   <tr>
     <th>Text</th>
+    <th colspan="3">Actions</th>
   </tr>
 
   <% @questions.each do |question| %>
