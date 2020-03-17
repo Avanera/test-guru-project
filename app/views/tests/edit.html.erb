@@ -1,21 +1,4 @@
-<h1>Editing Test</h1>
+<h1>Edit <%= @test.title %> test</h1>
 
-<form action="/tests/<%= @test.id %>" method="put">
-  <input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
-  <p>
-    <label for="test-title">Title:</label>
-    <input type="text" name="test[title]" id="test-title">
-  </p><br>
-
-  <p>
-    <label for="test-level">Level:</label>
-    <input type="text" name="test[level]" id="test-level">
-  </p><br>
-
-  <p>
-    <label for="test-category">Category:</label>
-    <input type="text" name="test[category]" id="category">
-  </p><br>
-
-  <input type="submit" value="Create">
-</form>
+<%= render 'form' %>
+<%= link_to 'Back', tests_path %>
