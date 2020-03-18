@@ -4,4 +4,4 @@
             question_path(@question),
             method: :delete,
             data: { confirm: 'Are you sure?'} %> |
-<%= link_to 'Back', test_path %>
+<%= link_to 'Back', @question.test %>
