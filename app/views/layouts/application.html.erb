@@ -12,4 +12,20 @@
   <body>
     <%= yield %>
   </body>
+
+  <footer class="footer">
+    <br><br><br>
+
+    <%= current_year %><br>
+    Test-Guru is a program for passing tests.<br>
+
+    <nav>
+      <ul>
+        <li><%= link_to 'Test-Guru Project', github_url('Avanera', 'test-guru-project'), target: :_blank %> by Arina Zaitseva</li>
+        <li>Учебный проект в онлайн-школе <%= link_to "Thinknetica", 'http://thinknetica.com/', target: :_blank %></li>
+      </ul>
+    </nav>
+
+  </footer>
+
 </html>
