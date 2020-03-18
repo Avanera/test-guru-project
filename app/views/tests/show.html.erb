@@ -12,7 +12,7 @@
 <td>
     <ol>
       <% @test.questions.each do |question| %>
-        <li><%= link_to "#{question.body}", test_question_path(@test, question) %></li>
+        <li><%= link_to "#{question.body}", question_path(question) %></li>
       <% end %>
     </ol>
 </td>
