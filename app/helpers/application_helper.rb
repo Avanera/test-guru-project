@@ -3,7 +3,7 @@ module ApplicationHelper
     Time.zone.now.year
   end
 
-  def github_link
-    link_to "Test-Guru Project", 'https://github.com/Avanera/test-guru-project/', target: :_blank
+  def github_url(author, repo)
+    "https://github.com/#{author}/#{repo}"
   end
 end
