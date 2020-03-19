@@ -6,10 +6,18 @@ Rails.application.routes.draw do
     resources :questions, shallow: true, except: :index do
       resources :answers, shallow: true
     end
+
+    member do
+      post :start
+    end
   end
 
-  resources :categories, only: %i[index show]
-  resources :users
+  # GET /test_passages/101/result
+  resources :test_passages, only: %i[show update] do
+    member do
+      get :result
+    end
+  end
 
   get '/tests/:category/:title', to: 'tests#search'
 
