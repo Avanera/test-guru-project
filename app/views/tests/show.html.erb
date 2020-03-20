@@ -1,24 +1,20 @@
-<table border="1" cellpadding="20" cellspacing="0">
-<tr>
-<td>Title:</td>
-<td colspan="3"> <%= @test.title %> </td>
-</tr>
-<tr>
-<td>Level:</td>
-<td colspan="3"> <%= test_level(@test) %> </td>
-</tr>
-<tr>
-<td rowspan="0">Questions:</td>
-<td>
-    <ol>
-      <% @test.questions.each do |question| %>
-        <li><%= link_to "#{question.body}", test_question_path(@test, question) %></li>
-      <% end %>
-    </ol>
-</td>
-</tr>
+<p>
+  Title: <%= @test.title %> 
+</p>
+<p>
+  Level: <%= test_level(@test) %> 
+</p>
 
-</table>
+<h2>Questions </h2>
+
+<%= link_to 'New question', new_test_question_path(@test) %>
+
+<ol>
+  <%= render @test.questions %>
+</ol>
+
+<%= link_to 'Edit test', edit_test_path %> |
+<%= link_to 'Back', tests_path %>
 
 
 

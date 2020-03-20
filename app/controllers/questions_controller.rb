@@ -1,9 +1,9 @@
 class QuestionsController < ApplicationController
 
-  before_action :find_test, only: %i[create new destroy index show edit update]
+  before_action :find_test, only: %i[create new index]
   before_action :find_question, only: %i[show destroy edit update]
 
-  rescue_from ActiveRecord::RecordNotFound, with: :rescue_with_question_not_found
+  #rescue_from ActiveRecord::RecordNotFound, with: :rescue_with_question_not_found
 
   def index
    # render inline: '<%= @questions.map { |question| question.body } %>'
@@ -34,7 +34,7 @@ class QuestionsController < ApplicationController
 
   def update
     if @question.update(question_params)
-      redirect_to test_question_path
+      redirect_to question_path
     else
       render :edit
     end
@@ -43,7 +43,7 @@ class QuestionsController < ApplicationController
 
   def destroy
     @question.destroy
-    redirect_to test_questions_path
+    redirect_to @question.test
   end
 
   def new
