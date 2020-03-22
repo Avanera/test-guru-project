@@ -1,21 +1,13 @@
 module TestPassagesHelper
-  def percent(test_passage)
-    (test_passage.correct_questions.to_f / test_passage.test.questions.count * 100).to_i
-  end
-
   def show_result
-    if percent(@test_passage) >= 85
-      "Congratulations! You have passed the test."
+    if @test_passage.success?
+      ("<h2 class='green'>#{result_message}<br>Congratulations! You have passed the test.</h2>").html_safe
     else
-      "You haven't passed the test."
+      ("<h2 class='red'>#{result_message}<br>You haven't passed the test.</h2>").html_safe
     end
   end
 
-  def h2_class
-    if percent(@test_passage) >= 85
-      "green"
-    else
-      "red"
-    end
+  def result_message
+    "Your result is #{@test_passage.percent_of_corrent_answers} %."
   end
 end
