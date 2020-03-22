@@ -29,24 +29,7 @@ class TestPassage < ApplicationRecord
     save!
   end
 
-  def completed?
-    current_question.nil?
-  end
-
-  def accept!(answer_ids)
-    if correct_answer?(answer_ids)
-      self.correct_questions += 1
-    end
-
-    self.current_question = next_question
-    save!
-  end
-
   private
-
-  def sussecc?
-    percent >= SUCCESS
-  end
 
   def before_validation_set_next_question
     self.current_question = next_question
