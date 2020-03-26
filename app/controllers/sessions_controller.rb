@@ -1,6 +1,7 @@
 class SessionsController < ApplicationController
-  def new
 
+  def new
+    redirect_to tests_path if logged_in?
   end
 
   def create
@@ -12,6 +13,11 @@ class SessionsController < ApplicationController
     else
       deny_access
     end
+  end
+
+  def destroy
+    session[:user_id] = nil
+    redirect_to login_path
   end
 
 end
