@@ -1,16 +1,21 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
+  before_action :authenticate_user!
+
   helper_method :current_user,
-                :logged_in?
+                :logged_in?,
+                :deny_access
 
   private
 
-  def authenticate_user!
-    unless current_user
-      redirect_to login_path, alert: 'Are you a Guru? Verify your Email and Password please'
-    end
+  def deny_access
+    cookies[:original_url] = request.url if cookies[:original_url].blank?
+    redirect_to login_path, alert: 'Are you a Guru? Verify your Email and Password please'
+  end
 
+  def authenticate_user!
+    deny_access unless current_user
     cookies[:email] = current_user&.email
   end
 

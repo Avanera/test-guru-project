@@ -2,17 +2,17 @@
   <%= render 'shared/errors', resource: @user %>
 
   <p>
-    <%= form.label :email %>
+    <%= form.label :email %><br>
     <%= form.text_field :email, id: :user_email%>
   </p>
 
   <p>
-    <%= form.label :password %>
+    <%= form.label :password %><br>
     <%= form.password_field :password, id: :user_password%>
   </p>
 
   <p>
-    <%= form.label :password_confirmation %>
+    <%= form.label :password_confirmation %><br>
     <%= form.password_field :password_confirmation, id: :user_password_confirmation%>
   </p>
 
