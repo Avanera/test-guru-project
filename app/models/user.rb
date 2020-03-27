@@ -8,6 +8,9 @@ class User < ApplicationRecord
 
   has_secure_password
 
+  validates :email, uniqueness: true,
+                    format: /\A[^@\s]+@([^@\s]+\.)+[^@\s]+\z/i
+
   def test_passage(test)
     test_passages.order(id: :desc).find_by(test_id: test.id)
   end
