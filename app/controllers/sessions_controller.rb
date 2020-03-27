@@ -11,7 +11,7 @@ class SessionsController < ApplicationController
 
     if user&.authenticate(params[:password])
       session[:user_id] = user.id
-      redirect_to cookies[:original_url]
+      redirect_to cookies[:original_url] || root_path
       cookies[:original_url] = nil
     else
       deny_access
