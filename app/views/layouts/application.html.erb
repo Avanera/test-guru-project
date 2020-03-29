@@ -10,26 +10,19 @@
   </head>
 
   <body>
-    <% if logged_in? %>
-      <p class="nav user">Welcome, <b><%= current_user.email %></b> Guru</p>
-      <ul class="menu">
+    <% if user_signed_in? %>
+      <p class="nav user">Welcome, <b><%= current_user.email %></b> Guru</p> |
         <%= link_to root_path do %>
             <li>Test-Guru</li>
           <% end %>
-        <%= link_to logout_path, method: "delete" do %>
+        <%= link_to destroy_user_session_path, method: :delete do %>
           <li>Log out</li>
         <% end %>
       </ul>
-    <% else %>
-      <ul class="menu">
-        <%= link_to login_path do %>
-          <li>Log in</li>
-        <% end %>
-        <%= link_to signup_path do %>
-          <li>Sign up</li>
-        <% end %>
-      </ul>
     <% end %>
+
+    <%= render 'shared/flash' %>
+
     <%= yield %>
   </body>
 
