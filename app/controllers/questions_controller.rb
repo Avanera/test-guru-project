@@ -3,7 +3,7 @@ class QuestionsController < ApplicationController
   before_action :find_test, only: %i[create new index]
   before_action :find_question, only: %i[show destroy edit update]
 
-  #rescue_from ActiveRecord::RecordNotFound, with: :rescue_with_question_not_found
+  rescue_from ActiveRecord::RecordNotFound, with: :rescue_with_question_not_found
 
   def index
    # render inline: '<%= @questions.map { |question| question.body } %>'
@@ -15,6 +15,7 @@ class QuestionsController < ApplicationController
   end
 
   def show
+
   end
 
   def create
@@ -26,10 +27,10 @@ class QuestionsController < ApplicationController
       render 'new'
     end
 
-    #render plain: question.inspect
   end
 
   def edit
+
   end
 
   def update
