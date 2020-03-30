@@ -23,6 +23,10 @@ Rails.application.routes.draw do
     end
   end
 
+  namespace :admin do
+    resources :tests
+  end
+
   get '/tests/:category/:title', to: 'tests#search'
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
