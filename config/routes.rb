@@ -7,10 +7,6 @@ Rails.application.routes.draw do
   delete :logout, to: 'sessions#destroy'
 
   resources :tests do
-    resources :questions, shallow: true, except: :index do
-      resources :answers, shallow: true
-    end
-
     member do
       post :start
     end
@@ -24,7 +20,11 @@ Rails.application.routes.draw do
   end
 
   namespace :admin do
-    resources :tests
+    resources :tests do
+      resources :questions, shallow: true, except: :index do
+      resources :answers, shallow: true
+    end
+    end
   end
 
   get '/tests/:category/:title', to: 'tests#search'
