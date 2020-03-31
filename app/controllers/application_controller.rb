@@ -5,6 +5,12 @@ class ApplicationController < ActionController::Base
 
   helper_method :deny_access
 
+  def after_sign_in_path_for(resource)
+    return '/admin/tests#index' if resource.class == Admin
+    
+    '/tests#index'
+  end
+
   private
 
   def deny_access
