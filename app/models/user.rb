@@ -16,7 +16,7 @@ class User < ApplicationRecord
                     format: /\A[^@\s]+@([^@\s]+\.)+[^@\s]+\z/i
 
   def admin?
-    self.class == Admin
+    is_a?(Admin)
   end
 
   def test_passage(test)
