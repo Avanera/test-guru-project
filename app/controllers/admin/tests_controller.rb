@@ -8,19 +8,16 @@ class Admin::TestsController < Admin::BaseController
     @tests = Test.all
   end
 
-  def show
-
-  end
+  def show; end
 
   def new
     @test = Test.new
   end
 
   def create
-    @test = Test.new(test_params)
+    @test = current_user.created_tests.new(test_params)
 
     if @test.save
-      @test.author = current_user
       redirect_to admin_test_path(@test)
     else
       render :new
@@ -33,9 +30,7 @@ class Admin::TestsController < Admin::BaseController
     render plain: result.join("\n")
   end
 
-  def edit
-
-  end
+  def edit; end
 
   def update
     if @test.update(test_params)

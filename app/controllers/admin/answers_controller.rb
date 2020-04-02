@@ -10,9 +10,7 @@ class Admin::AnswersController < Admin::BaseController
     @answer = @question.answers.new
   end
 
-  def edit
-
-  end
+  def edit; end
 
   def create
     @answer = @question.answers.new(answer_params)

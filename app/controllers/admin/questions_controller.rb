@@ -10,13 +10,11 @@ class Admin::QuestionsController < Admin::BaseController
     @questions = @test.questions
     respond_to do |format|
       format.json {render json: { questions: @questions } }
-      format.html 
+      format.html
     end
   end
 
-  def show
-
-  end
+  def show; end
 
   def create
     @question = @test.questions.new(question_params)
@@ -29,9 +27,7 @@ class Admin::QuestionsController < Admin::BaseController
 
   end
 
-  def edit
-
-  end
+  def edit; end
 
   def update
     if @question.update(question_params)

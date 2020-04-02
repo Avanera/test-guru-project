@@ -7,9 +7,11 @@ class ApplicationController < ActionController::Base
   helper_method :deny_access
 
   def after_sign_in_path_for(resource)
-    return '/admin/tests#index' if resource.class == Admin
-    
-    '/tests#index'
+    if resource.admin?
+      admin_tests_path
+    else
+      super
+    end
   end
 
   protected
