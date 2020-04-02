@@ -3,13 +3,9 @@ class TestPassagesController < ApplicationController
   before_action :authenticate_user!
   before_action :set_test_passage, only: %i[show update result]
 
-  def show
+  def show; end
 
-  end
-
-  def result
-
-  end
+  def result; end
 
   def update
     @test_passage.accept!(params[:answer_ids])

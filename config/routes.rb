@@ -1,16 +1,12 @@
 Rails.application.routes.draw do
 
-  devise_for :users, path: 'gurus', path_name: { sign_in: :login, sign_out: :logout}
+  devise_for :users, path: 'gurus', path_name: { sign_in: :login, sign_out: :logout}, controllers: { sessions: 'users/sessions' }
 
   root 'tests#index'
 
   delete :logout, to: 'sessions#destroy'
 
   resources :tests do
-    resources :questions, shallow: true, except: :index do
-      resources :answers, shallow: true
-    end
-
     member do
       post :start
     end
@@ -24,7 +20,12 @@ Rails.application.routes.draw do
   end
 
   namespace :admin do
-    resources :tests
+    root 'tests#index'
+    resources :tests do
+      resources :questions, shallow: true, except: :index do
+      resources :answers, shallow: true
+    end
+    end
   end
 
   get '/tests/:category/:title', to: 'tests#search'

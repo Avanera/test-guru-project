@@ -7,11 +7,11 @@
 
 <h2>Questions </h2>
 
-<%= link_to 'New question', new_test_question_path(@test) %>
+<%= link_to 'New question', new_admin_test_question_path(@test) %>
 
 <ol>
-  <%#= render @test.questions %>
-  <%= render partial: 'questions/question', collection: @test.questions %>
+  <%= render @test.questions %>
+  <%#= render partial: 'questions/question', collection: @test.questions %>
 </ol>
 
 <%= link_to 'Edit test', edit_admin_test_path %> |
@@ -36,7 +36,3 @@
   <strong>Questions:</strong>
   <%= @test.questions.map { |question| question.body} %>
 </p>
-
-<%= link_to 'Edit', edit_test_path(@test) %> |
-<%= link_to 'Back', tests_path %>
- -->
