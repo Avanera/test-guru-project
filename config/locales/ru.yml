@@ -1,2 +1,11 @@
 ru:
-  hello: "Привет"
+  hello: "Привет мир"
+
+  admin:
+    tests:
+      index:
+        header: "Доступные Тесты"
+
+  tests:
+    index:
+      header: "Доступные Тесты"

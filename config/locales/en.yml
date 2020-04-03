@@ -31,3 +31,12 @@
 
 en:
   hello: "Hello world"
+
+  admin:
+    tests:
+      index:
+        header: "Tricky tests"
+
+  tests:
+    index:
+      header: "Tricky tests"
