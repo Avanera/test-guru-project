@@ -16,11 +16,19 @@ ru:
       test:
         create: "Создать Тест"
         update: "Обновить Тест"
+      user:
+        create: "Зарегистрироваться"
     label:
       test:
         title: "Название"
         level: "Уровень"
         category_id: "Категория"
+      user:
+        first_name: "Имя"
+        last_name: "Фамилия"
+        email: "Электронная почта"
+        password: "Пароль (минимум 6 знаков)"
+        password_confirmation: "Введите пароль еще раз"
 
   shared:
     errors:

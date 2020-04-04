@@ -2,10 +2,16 @@ ru:
   activerecord:
     models:
       test: "Тест"
+      user: "Пользователь"
 
     attributes:
       test:
         title: "Название"
+      user:
+        first_name: "Имя"
+        last_name: "Фамилия"
+        email: "Электронная почта"
+        password: "Пароль"
 
     errors:
       messages:
