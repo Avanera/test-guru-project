@@ -1,6 +1,16 @@
 ru:
   hello: "Привет мир"
 
+  admin_panel: 'Панель администратора TestGuru'
+  welcome: 'Привет, гуру '
+  welcome_html: 'Привет, гуру <b>%{name}</b>'
+  logout: 'Выйти'
+  about_program: 'Test-Guru - это программа для прохождения тестов.'
+  author_html: 'Проект %{href}. Автор: Арина Зайцева.'
+  author_href: 'Test-Guru'
+  thinknetica_html: 'Учебный проект в онлайн-школе %{href}.'
+  thinknetica_href: 'Thinknetica'
+
   helpers:
     submit:
       test:

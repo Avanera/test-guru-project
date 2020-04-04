@@ -11,12 +11,12 @@
 
   <body>
     <% if user_signed_in? %>
-      <p class="nav user">Welcome, <b><%= current_user.email %></b> Guru</p> |
+      <p class="nav user"><%= t('welcome_html', name: current_user.first_name) %></p> |
         <%= link_to root_path do %>
             <li>Test-Guru</li>
           <% end %>
         <%= link_to destroy_user_session_path, method: :delete do %>
-          <li>Log out</li>
+          <li><%= t('logout') %></li>
         <% end %>
       </ul>
     <% end %>
@@ -30,12 +30,13 @@
     <br><br><br>
 
     <%= current_year %><br>
-    Test-Guru is a program for passing tests.<br>
+    <%= t('about_program') %><br>
 
     <nav>
       <ul>
-        <li><%= link_to 'Test-Guru Project', github_url('Avanera', 'test-guru-project'), target: :_blank %> by Arina Zaitseva</li>
-        <li>Учебный проект в онлайн-школе <%= link_to "Thinknetica", 'http://thinknetica.com/', target: :_blank %></li>
+        <li><%= t("author_html", href: link_to(t("author_href"), github_url('Avanera', 'test-guru-project'), target: :blank)) %> </li>
+        <li><%= t('thinknetica_html', href: link_to(t('thinknetica_href'),'http://thinknetica.com/', target: :blank)) %></li>
+
       </ul>
     </nav>
 
