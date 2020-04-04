@@ -26,10 +26,18 @@ ru:
         success: "Тест успешно создан."
       index:
         header: "Доступные Тесты"
+        new_test: "Создать новый тест"
+      new:
+        header: "Создание Нового Теста"
 
   tests:
+    questions_number: "Количество вопросов"
+    actions: "Действия"
+    start: "Пройти тест"
     index:
       header: "Доступные Тесты"
+    error:
+      not_found: 'Тест не найден'
 
   test_passages:
     result:
@@ -38,3 +46,16 @@ ru:
   tests_mailer:
     completed_test:
       subject: "Вы успешно завершили тест на TestGuru!"
+
+  shared:
+    show: "Открыть"
+    edit: "Изменить"
+    delete: "Удалить"
+    confirm: "Вы уверены?"
+    back: "Назад"
+
+  # test_levels:
+  #   0: новичок
+  #   1: легкий
+  #   2: продвинутый
+  #   3: сложный

@@ -2,7 +2,7 @@ class Admin::TestsController < Admin::BaseController
 
   before_action :find_test, only: %i[show edit update destroy start]
 
-  #rescue_from ActiveRecord::RecordNotFound, with: :rescue_with_test_not_found
+  rescue_from ActiveRecord::RecordNotFound, with: :rescue_with_test_not_found
 
   def index
     @tests = Test.all
@@ -61,6 +61,6 @@ class Admin::TestsController < Admin::BaseController
   end
 
   def rescue_with_test_not_found
-    render plain: 'Test was not found'
+    render plain: t('tests.error.not_found')
   end
 end

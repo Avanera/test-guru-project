@@ -53,12 +53,21 @@ en:
     tests:
       create:
         success: "Test was successfully created."
+
       index:
         header: "Tricky tests"
+        new_test: "Create new test"
+      new:
+        header: "Create New Test"
 
   tests:
+    questions_number: "Number of questions"
+    actions: "Actions"
+    start: "Start Test"
     index:
       header: "Tricky tests"
+    error:
+      not_found: 'Test was not found'
 
   test_passages:
     result:
@@ -67,3 +76,10 @@ en:
   tests_mailer:
     completed_test:
       subject: "You just completed the TestGuru test!"
+
+  shared:
+    show: "Show"
+    edit: "Edit"
+    delete: "Delete"
+    confirm: "Are you sure?"
+    back: "Back"
