@@ -63,12 +63,17 @@ en:
     tests:
       create:
         success: "Test was successfully created."
-
       index:
         header: "Tricky tests"
         new_test: "Create new test"
       new:
         header: "Create New Test"
+      show:
+        edit_test: "Edit test"
+        new_question: "Create New Question"
+        questions: "Questions"
+      edit:
+        edit_test: "Edit %{title} test"
 
   tests:
     questions_number: "Number of questions"

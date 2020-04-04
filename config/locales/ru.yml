@@ -39,6 +39,12 @@ ru:
         new_test: "Создать новый тест"
       new:
         header: "Создание Нового Теста"
+      show:
+        edit_test: "Изменить тест"
+        new_question: "Создать новый вопрос"
+        questions: "Вопросы"
+      edit:
+        edit_test: "Изменение %{title} Теста"
 
   tests:
     questions_number: "Количество вопросов"
