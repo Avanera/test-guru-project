@@ -8,7 +8,7 @@ class ApplicationController < ActionController::Base
   helper_method :deny_access
 
   def default_url_options
-    { lang: I18n.locale }
+    { lang: I18n.locale == I18n.default_locale ? nil : I18n.locale }
   end
 
   def after_sign_in_path_for(resource)
