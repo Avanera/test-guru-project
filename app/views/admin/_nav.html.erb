@@ -2,7 +2,13 @@
   <span class="nav-admin title"><%= t('admin_panel') %></span>
 
   <div class="nav-admin user">
-    <%= t('welcome') %><b class="nav-admin user-email"><%= current_user.first_name %></b> | <%= link_to t('logout'), destroy_user_session_path, method: :delete %>
+    <%= t('welcome') %><b class="nav-admin user-email"><%= current_user.first_name %></b> | <%= link_to t('logout'), destroy_user_session_path, method: :delete %> |
+    <% if I18n.locale == I18n.default_locale %>
+      <%= link_to "English", { :lang=>'en' } %>
+    <% else %>
+      <%= link_to "Русский", { :lang=>'ru' } %>
+    <%end%>
   </div>
+
 </div>
 
