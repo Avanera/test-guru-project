@@ -23,6 +23,11 @@ ru:
         title: "Название"
         level: "Уровень"
         category_id: "Категория"
+        easy: "легкий"
+        elementary: "базовый"
+        advanced: "продвинутый"
+        hard: "сложный"
+        hero: "героический"
       user:
         first_name: "Имя"
         last_name: "Фамилия"
