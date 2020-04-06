@@ -47,6 +47,16 @@ en:
       updated_but_not_signed_in: "Your account has been updated successfully, but since your password was changed, you need to sign in again"
       new:
         sign_up: "Become a Guru"
+      edit:
+        are_you_sure: "Are you sure?"
+        cancel_my_account: "Cancel my account"
+        currently_waiting_confirmation_for_email: "Currently waiting confirmation for: %{email}"
+        leave_blank_if_you_don_t_want_to_change_it: "(leave blank if you don't want to change it)"
+        title: "Edit %{resource}"
+        unhappy: "Unhappy?"
+        update: "Update"
+        we_need_your_current_password_to_confirm_your_changes: "(we need your current password to confirm your changes)"
+
     sessions:
       signed_in: "Signed in successfully."
       signed_out: "Signed out successfully."

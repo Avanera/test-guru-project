@@ -52,6 +52,16 @@ ru:
       updated_but_not_signed_in: "Ваш аккаунт успешно изменен, но так как ваш пароль изменился, нужно войти снова."
       new:
         sign_up: "Стать Гуру"
+      edit:
+        are_you_sure: "Вы уверены?"
+        cancel_my_account: "Удалить учетную запись"
+        currently_waiting_confirmation_for_email: "Ожидается подтверждение адреса E-mail: %{email}"
+        leave_blank_if_you_don_t_want_to_change_it: "оставьте поле пустым, если не хотите ничего менять"
+        title: "Редактировать %{resource}"
+        unhappy: "Разочарованы"
+        update: "Обновить"
+        we_need_your_current_password_to_confirm_your_changes: "введите текущий пароль для подтверждения изменений"
+
     sessions:
       signed_in: "Вход в систему выполнен."
       signed_out: "Выход из системы выполнен."

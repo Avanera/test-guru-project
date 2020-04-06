@@ -18,6 +18,7 @@ ru:
         update: "Обновить Тест"
       user:
         create: "Зарегистрироваться"
+        update: "Обновить"
     label:
       test:
         title: "Название"
@@ -33,7 +34,8 @@ ru:
         last_name: "Фамилия"
         email: "Электронная почта"
         password: "Пароль (минимум 6 знаков)"
-        password_confirmation: "Введите пароль еще раз"
+        password_confirmation: "Подтвердите пароль:"
+        current_password: "Текущий пароль"
 
   shared:
     errors:
