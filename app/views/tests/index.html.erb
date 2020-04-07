@@ -1,11 +1,11 @@
-<h1>Tests in progress</h1>
+<h1><%= t('.header') %></h1>
 
 <table border="1" cellpadding="7" cellspacing="0">
   <tr>
-    <th>Title</th>
-    <th>Level</th>
-    <th>Number of questions</th>
-    <th>Actions</th>
+    <th><%= t('helpers.label.test.title') %></th>
+    <th><%= t('helpers.label.test.level') %></th>
+    <th><%= t('tests.questions_number') %></th>
+    <th><%= t('tests.actions') %></th>
   </tr>
 
   <%= render @tests %>

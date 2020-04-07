@@ -1,15 +1,15 @@
-<h1>Tests in progress</h1>
+<h1><%= t('.header') %></h1>
 
 <p>
-  <h3><%= link_to 'New test', new_admin_test_path %></h3>
+  <h3><%= link_to t('.new_test'), new_admin_test_path %></h3>
 </p>
 
 <table border="1" cellpadding="7" cellspacing="0">
   <tr>
-    <th>Title</th>
-    <th>Level</th>
-    <th>Number of questions</th>
-    <th colspan="4">Actions</th>
+    <th><%= t('helpers.label.test.title') %></th>
+    <th><%= t('helpers.label.test.level') %></th>
+    <th><%= t('tests.questions_number') %></th>
+    <th colspan="4"><%= t('tests.actions') %></th>
   </tr>
 
   <%= render @tests %>

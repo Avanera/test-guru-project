@@ -1,9 +1,9 @@
 <li>
-  <%= question.body %><br>
-  <%= link_to 'Show', admin_question_path(question) %> |
-  <%= link_to 'Edit', edit_admin_question_path(question) %> |
-  <%= link_to 'Delete',
+  <h3><%= question.body %></h3>
+  <%= link_to t('shared.show'), admin_question_path(question) %> |
+  <%= link_to t('shared.edit'), edit_admin_question_path(question) %> |
+  <%= link_to t('shared.delete'),
               admin_question_path(question),
               method: :delete,
-              data: { confirm: 'Are you sure?' } %>
+              data: { confirm: t('shared.confirm') } %>
 </li>

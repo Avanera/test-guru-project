@@ -31,3 +31,107 @@
 
 en:
   hello: "Hello world"
+
+  admin_panel: 'TestGuru Admin Panel'
+  welcome: 'Welcome, guru '
+  welcome_html: 'Welcome, <b>%{name}</b> Guru'
+  logout: 'Log out'
+  about_program: 'Test-Guru is a program for passing tests.'
+  author_html: '%{href} by Arina Zaitseva'
+  author_href: 'Test-Guru Project'
+  thinknetica_html: 'Educational project in online-school %{href}.'
+  thinknetica_href: 'Thinknetica'
+
+  helpers:
+    submit:
+      test:
+        create: "Create Test"
+        update: "Update Test"
+      user:
+        create: "Sign up"
+        update: "Update"
+    label:
+      test:
+        title: "Title"
+        level: "Level"
+        category_id: "Category"
+        easy: "easy"
+        elementary: "elementary"
+        advanced: "advanced"
+        hard: "hard"
+        hero: "hero"
+      user:
+        first_name: "First name"
+        last_name: "Last name"
+        email: "Email"
+        password: "Password (6 characters minimum)"
+        password_confirmation: "Password confirmation"
+        current_password: "Current password"
+  shared:
+    errors:
+      header:
+        one: "%{count} error detected"
+        other: "%{count} errors detected"
+
+  admin:
+    tests:
+      create:
+        success: "Test was successfully created."
+      index:
+        header: "Tricky tests"
+        new_test: "Create new test"
+      new:
+        header: "Create New Test"
+      show:
+        edit_test: "Edit test"
+        new_question: "Create New Question"
+        questions: "Questions"
+      edit:
+        edit_test: "Edit %{title} test"
+
+  tests:
+    questions_number: "Number of questions"
+    actions: "Actions"
+    start: "Start Test"
+    index:
+      header: "Tricky tests"
+    error:
+      not_found: 'Test was not found'
+
+  test_passages:
+    result:
+      header: "The %{title} Test was Completed!"
+
+  tests_mailer:
+    completed_test:
+      subject: "You just completed the TestGuru test!"
+
+  mailer:
+    confirmation_instructions:
+      action: "Confirm my account"
+      greeting: "Welcome %{recipient}!"
+      instruction: "You can confirm your account email through the link below:"
+    email_changed:
+      greeting: Hello, %{recipient}!
+      message: We're contacting you to notify you that your email is being changed to %{email}.
+      subject: We're contacting you to notify you that your email has been changed to %{email}.
+    password_change:
+      greeting: "Hello, %{recipient}!"
+      message: "Your password has been changed."
+    reset_password_instructions:
+      action: "Change my password"
+      greeting: "Hello, %{recipient}!"
+      instruction: "Someone has requested a link to change your password. You can do this through the link below."
+      instruction_2: "If you didn't request this, please ignore this email."
+      instruction_3: "Your password won't change until you access the link above and create a new one."
+    unlock_instructions:
+      action: "Unlock my account"
+      greeting: "Hello, %{recipient}!"
+      instruction: "Click the link below to unlock your account:"
+      message: "Your account has been locked due to an excessive number of unsuccessful sign in attempts."
+  shared:
+    show: "Show"
+    edit: "Edit"
+    delete: "Delete"
+    confirm: "Are you sure?"
+    back: "Back"

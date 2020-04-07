@@ -1,2 +1,115 @@
 ru:
-  hello: "Привет"
+  hello: "Привет мир"
+
+  admin_panel: 'Панель администратора TestGuru'
+  welcome: 'Привет, гуру '
+  welcome_html: 'Привет, гуру <b>%{name}</b>'
+  logout: 'Выйти'
+  about_program: 'Test-Guru - это программа для прохождения тестов.'
+  author_html: 'Проект %{href}. Автор: Арина Зайцева.'
+  author_href: 'Test-Guru'
+  thinknetica_html: 'Учебный проект в онлайн-школе %{href}.'
+  thinknetica_href: 'Thinknetica'
+
+  helpers:
+    submit:
+      test:
+        create: "Создать Тест"
+        update: "Обновить Тест"
+      user:
+        create: "Зарегистрироваться"
+        update: "Обновить"
+    label:
+      test:
+        title: "Название"
+        level: "Уровень"
+        category_id: "Категория"
+        easy: "легкий"
+        elementary: "базовый"
+        advanced: "продвинутый"
+        hard: "сложный"
+        hero: "героический"
+      user:
+        first_name: "Имя"
+        last_name: "Фамилия"
+        email: "Электронная почта"
+        password: "Пароль (минимум 6 знаков)"
+        password_confirmation: "Подтвердите пароль:"
+        current_password: "Текущий пароль"
+
+  shared:
+    errors:
+      header:
+        few: "Обнаружено %{count} ошибки"
+        many: "Обнаружено %{count} ошибок"
+        one: "Обнаружена %{count} ошибка"
+        other: "Обнаружено %{count} ошибки"
+
+  admin:
+    tests:
+      create:
+        success: "Тест успешно создан."
+      index:
+        header: "Доступные Тесты"
+        new_test: "Создать новый тест"
+      new:
+        header: "Создание Нового Теста"
+      show:
+        edit_test: "Изменить тест"
+        new_question: "Создать новый вопрос"
+        questions: "Вопросы"
+      edit:
+        edit_test: "Изменение %{title} Теста"
+
+  tests:
+    questions_number: "Количество вопросов"
+    actions: "Действия"
+    start: "Пройти тест"
+    index:
+      header: "Доступные Тесты"
+    error:
+      not_found: 'Тест не найден'
+
+  test_passages:
+    result:
+      header: "Тест %{title} успешно завершен!"
+
+  tests_mailer:
+    completed_test:
+      subject: "Вы успешно завершили тест на TestGuru!"
+
+  mailer:
+    confirmation_instructions:
+      action: "Активировать"
+      greeting: "Привет %{recipient}!"
+      instruction: "Вы можете активировать свою учетную запись, нажав ссылку снизу:"
+    email_changed:
+      greeting: Здравствуйте, %{recipient}!
+      message: Мы пытаемся связаться с вами, что бы сообщить, что ваш email был изменен на %{email}.
+      subject: Email изменен на %{email}.
+    password_change:
+      greeting: "Здравствуйте, %{recipient}!"
+      message: "Ваш пароль был изменен."
+    reset_password_instructions:
+      action: "Изменить пароль"
+      greeting: "Привет, %{recipient}!"
+      instruction: "Вы (или кто-то еще) запросили изменение пароля. Для изменение пароля нажимите ссылку ниже:"
+      instruction_2: "Если вы не запрашивали изменение пароля - проигнорируйте это сообщение"
+      instruction_3: "Ваш пароль не изменится пока вы не нажмете на ссылку и не введете новый."
+    unlock_instructions:
+      action: "Разблокировать учетную запись"
+      greeting: "Привет, %{recipient}!"
+      instruction: "Нажмите ссылку для активации учетной записи:"
+      message: "Ваша учетная запись была заблокирована в связи с превышением лимита неудачных попыток входа."
+  shared:
+    show: "Открыть"
+    edit: "Изменить"
+    delete: "Удалить"
+    confirm: "Вы уверены?"
+    back: "Назад"
+
+  # test_levels:
+  #   0: новичок
+  #   1: легкий
+  #   2: продвинутый
+  #   3: сложный
