@@ -97,6 +97,7 @@ en:
     start: "Start Test"
     index:
       header: "Tricky tests"
+      small_header: "Have fun!"
     error:
       not_found: 'Test was not found'
 

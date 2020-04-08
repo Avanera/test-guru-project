@@ -1,6 +1,21 @@
-<tr>
-  <td><%= test.title %></td>
-  <td><%= test_level(test) %></td>
-  <td align="center"><%= test.questions.count %></td>
-  <td><%= button_to t('tests.start'), start_test_path(test) %></td>
-</tr>
+<tbody>
+  <% if test.level == 1 %>
+    <tr class="table-warning">
+  <% elsif test.level == 2 %>
+    <tr class="table-active">
+  <% elsif test.level == 3 %>
+    <tr class="table-success">
+  <% elsif test.level == 4 %>
+    <tr class="table-info">
+  <% elsif test.level > 4 %>
+    <tr class="table-danger">
+  <% end %>
+
+    <td><%= test.title %></td>
+    <td><%= test_level(test) %></td>
+    <td align="center"><%= test.questions.count %></td>
+    <td><%= button_to t('tests.start'), start_test_path(test) %></td>
+  </tr>
+</tbody>
+
+
