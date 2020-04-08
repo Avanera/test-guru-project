@@ -1,0 +1,14 @@
+<nav class="navbar navbar-light bg-light">
+  <%= link_to 'TestGuru', root_path, class: 'navbar-brand' %>
+  <span class="navbar-text">
+    <% if user_signed_in? %>
+      <%= t('welcome_html', name: current_user.first_name) %> |
+      <%= link_to t('logout'), destroy_user_session_path, method: :delete %>
+    <% else %>
+      <%= link_to t('login'), new_session_path(resource_name) %> |
+      <%= link_to t('signup'), new_registration_path(resource_name) %>
+    <% end %> |
+    <%= I18n.locale == I18n.default_locale ? (link_to "English", { :lang=>'en' }) : (link_to "Русский", { :lang=>'ru' }) %>
+  </span>
+</nav>
+

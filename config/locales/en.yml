@@ -36,6 +36,8 @@ en:
   welcome: 'Welcome, guru '
   welcome_html: 'Welcome, <b>%{name}</b> Guru'
   logout: 'Log out'
+  login: 'Log in'
+  signup: 'Sign up'
   about_program: 'Test-Guru is a program for passing tests.'
   author_html: '%{href} by Arina Zaitseva'
   author_href: 'Test-Guru Project'

@@ -5,6 +5,8 @@ ru:
   welcome: 'Привет, гуру '
   welcome_html: 'Привет, гуру <b>%{name}</b>'
   logout: 'Выйти'
+  login: 'Войти'
+  signup: 'Зарегистрироваться'
   about_program: 'Test-Guru - это программа для прохождения тестов.'
   author_html: 'Проект %{href}. Автор: Арина Зайцева.'
   author_href: 'Test-Guru'
