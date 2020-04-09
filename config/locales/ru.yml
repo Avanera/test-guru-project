@@ -1,7 +1,7 @@
 ru:
   hello: "Привет мир"
 
-  admin_panel: 'Панель администратора TestGuru'
+  admin_panel: 'Панель администратора'
   welcome: 'Привет, гуру '
   welcome_html: 'Привет, гуру <b>%{name}</b>'
   logout: 'Выйти'
