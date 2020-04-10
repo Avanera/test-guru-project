@@ -1,10 +1,13 @@
 ru:
   hello: "Привет мир"
 
-  admin_panel: 'Панель администратора TestGuru'
+  admin_panel: 'Панель администратора'
   welcome: 'Привет, гуру '
   welcome_html: 'Привет, гуру <b>%{name}</b>'
   logout: 'Выйти'
+  login: 'Войти'
+  signup: 'Зарегистрироваться'
+  language: "Язык"
   about_program: 'Test-Guru - это программа для прохождения тестов.'
   author_html: 'Проект %{href}. Автор: Арина Зайцева.'
   author_href: 'Test-Guru'
@@ -67,6 +70,7 @@ ru:
     start: "Пройти тест"
     index:
       header: "Доступные Тесты"
+      small_header: "Приятного прохождения!"
     error:
       not_found: 'Тест не найден'
 

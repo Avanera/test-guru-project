@@ -32,10 +32,13 @@
 en:
   hello: "Hello world"
 
-  admin_panel: 'TestGuru Admin Panel'
+  admin_panel: 'Admin Panel'
   welcome: 'Welcome, guru '
   welcome_html: 'Welcome, <b>%{name}</b> Guru'
   logout: 'Log out'
+  login: 'Log in'
+  signup: 'Sign up'
+  language: "Language"
   about_program: 'Test-Guru is a program for passing tests.'
   author_html: '%{href} by Arina Zaitseva'
   author_href: 'Test-Guru Project'
@@ -95,6 +98,7 @@ en:
     start: "Start Test"
     index:
       header: "Tricky tests"
+      small_header: "Have fun!"
     error:
       not_found: 'Test was not found'
 

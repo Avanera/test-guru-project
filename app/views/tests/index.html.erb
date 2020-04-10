@@ -1,12 +1,23 @@
-<h1><%= t('.header') %></h1>
+<div class="row justify-content-center mt-3" >
+  <div class="col col-md-8">
+    <h1>
+      <%= t('.header') %>
+      <br><small class="text-muted lead"><%= t('.small_header') %></small>
+    </h1>
+    <div class="table-responsive">
+      <table class="table table-hover table-sm">
+        <caption><%= t('.header') %></caption>
+        <thead class="thead-dark">
+          <tr>
+            <th scope="col"><%= t('helpers.label.test.title') %></th>
+            <th scope="col"><%= t('helpers.label.test.level') %></th>
+            <th scope="col"><%= t('tests.questions_number') %></th>
+            <th scope="col"><%= t('tests.actions') %></th>
+          </tr>
+        </thead>
 
-<table border="1" cellpadding="7" cellspacing="0">
-  <tr>
-    <th><%= t('helpers.label.test.title') %></th>
-    <th><%= t('helpers.label.test.level') %></th>
-    <th><%= t('tests.questions_number') %></th>
-    <th><%= t('tests.actions') %></th>
-  </tr>
-
-  <%= render @tests %>
-</table>
+        <%= render @tests %>
+      </table>
+    </div>
+  </div>
+</div>
