@@ -8,12 +8,12 @@ class TestPassagesController < ApplicationController
   def result; end
 
   def update
-    @test_passage.accept!(params[:answer_ids])
+    result = TestPassages::UpdateOperation.new(params).call
 
-    if @test_passage.completed?
-      TestsMailer.completed_test(@test_passage).deliver_now
+    if result[:success]
       redirect_to result_test_passage_path(@test_passage)
     else
+      @test_passage.reload
       render :show
     end
   end
