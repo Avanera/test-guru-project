@@ -10,7 +10,7 @@ class TestPassagesController < ApplicationController
   def update
     result = TestPassages::UpdateOperation.new(params).call
 
-    if result[:success]
+    if result.success
       redirect_to result_test_passage_path(@test_passage)
     else
       @test_passage.reload

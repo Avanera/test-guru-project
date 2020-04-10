@@ -3,7 +3,7 @@ module TestPassages
 
     def initialize(params)
       @params = params
-      @result = {success: true}
+      @result = OpenStruct.new(success: true)
     end
 
     def call
@@ -12,7 +12,7 @@ module TestPassages
       if test_passage.completed?
         handle_completed_test_passage
       else
-        @result[:success] = false
+        @result.success = false
       end
 
       @result
