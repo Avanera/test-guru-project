@@ -5,10 +5,20 @@ class GistQuestionService
     @question = question
     @test = @question.test
     @client = client || GitHubClient.new
+    @result = OpenStruct.new(success: true, response_body: nil)
   end
 
   def call
-    @client.create_gist(gist_params)
+    begin
+      @result.response_body = @client.create_gist(gist_params)
+    rescue StandardError => e
+      @result.success = false
+      Rails.logger.error(
+        "An error occured while calling #{self.class}. The original error was: #{e}"
+      )
+    end
+
+    @result
   end
 
   private
