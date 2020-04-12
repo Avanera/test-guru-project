@@ -32,6 +32,8 @@ gem 'rails-i18n'
 gem 'jquery-rails'
 gem 'bootstrap', '~> 4.4.1'
 
+gem 'faraday' # NETWORKING
+
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 
