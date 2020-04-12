@@ -106,7 +106,7 @@ en:
     result:
       header: "The %{title} Test was Completed!"
     gist:
-      success: "Gist was successfully created."
+      success: "Gist was successfully created. Link to Gist: %{gist_url}"
       failure: "An error occurred while saving Gist."
 
   tests_mailer:
