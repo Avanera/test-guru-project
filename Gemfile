@@ -33,6 +33,7 @@ gem 'jquery-rails'
 gem 'bootstrap', '~> 4.4.1'
 
 gem 'faraday' # NETWORKING
+gem 'octokit', '~> 4.0' # Official clients for the GitHub API
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
