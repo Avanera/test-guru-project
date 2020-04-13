@@ -80,6 +80,7 @@ ru:
     gist:
       success: "Gist успешно сохранен. %{gist_url}"
       gist_link: "Ссылка на Gist"
+      description: "Вопрос о %{title} из приложения TestGuru"
       failure: "Во время сохранения Gist произошла ошибка."
 
   tests_mailer:
