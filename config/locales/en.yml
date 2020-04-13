@@ -83,6 +83,7 @@ en:
       index:
         header: "Tricky tests"
         new_test: "Create new test"
+        gists_list: "Show all created Gists"
       new:
         header: "Create New Test"
       show:
@@ -91,6 +92,12 @@ en:
         questions: "Questions"
       edit:
         edit_test: "Edit %{title} test"
+    gists:
+      index:
+        header: "Gists List"
+        question: "Question"
+        link_to_github: "Link to Gist"
+        email: "User Email"
 
   tests:
     questions_number: "Number of questions"

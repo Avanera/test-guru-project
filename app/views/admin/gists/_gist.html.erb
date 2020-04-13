@@ -1,0 +1,6 @@
+<tr>
+  <td><%= link_to gist.question.body[0..25], admin_question_path(gist.question) %></td>
+  <td><%= link_to gist.github_id, gist.url, target: :blank %></td>
+
+  <td><%= gist.user.email %></td>
+</tr>

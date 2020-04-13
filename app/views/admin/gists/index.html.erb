@@ -1,25 +1,11 @@
-<h1>Список гистов</h1>
+<h1><%= t('.header') %></h1>
 
 <table border="1" cellpadding="7" cellspacing="0">
   <tr>
-    <th><%= t('helpers.label.test.title') %></th>
-    <th><%= t('helpers.label.test.level') %></th>
-    <th><%= t('tests.questions_number') %></th>
-    <th colspan="4"><%= t('tests.actions') %></th>
+    <th><%= t('.question') %></th>
+    <th><%= t('.link_to_github') %></th>
+    <th><%= t('.email') %></th>
   </tr>
 
-  <tr>
-    <td><%= test.title %></td>
-    <td><%= test_level(test) %></td>
-    <td align="center"><%= test.questions.count %></td>
-    <td><%= link_to t('shared.show'), admin_test_path(test) %></td>
-    <td><%= link_to t('shared.edit'), edit_admin_test_path(test) %></td>
-    <td>
-      <%= link_to t('shared.delete'),
-                  admin_test_path(test),
-                  method: :delete,
-                  data: { confirm: t('shared.confirm')} %>
-    </td>
-  </tr>
-
+  <%= render @gists %>
 </table>

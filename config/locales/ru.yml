@@ -55,6 +55,7 @@ ru:
       index:
         header: "Доступные Тесты"
         new_test: "Создать новый тест"
+        gists_list: "Посмотреть все созданные Gist"
       new:
         header: "Создание Нового Теста"
       show:
@@ -63,6 +64,12 @@ ru:
         questions: "Вопросы"
       edit:
         edit_test: "Изменение %{title} Теста"
+    gists:
+      index:
+        header: "Список всех Gist"
+        question: "Вопрос"
+        link_to_github: "Ссылка на Gist"
+        email: "Email пользователя"
 
   tests:
     questions_number: "Количество вопросов"
