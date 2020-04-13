@@ -1,8 +1,9 @@
 # frozen_string_literal: true
 
 class GistQuestionService
-  def initialize(question, client: nil)
+  def initialize(question, current_user, client: nil)
     @question = question
+    @cuser = current_user
     @test = @question.test
     @client = client || GitHubClient.new
     @result = OpenStruct.new(success: true, response_body: nil)
@@ -17,6 +18,8 @@ class GistQuestionService
         "An error occured while calling #{self.class}. The original error was: #{e}"
       )
     end
+
+    create_gist_in_db if @result.success
 
     @result
   end
@@ -38,5 +41,13 @@ class GistQuestionService
     content = [@question.body]
     content += @question.answers.pluck(:body)
     content.join("\n")
+  end
+
+  def create_gist_in_db
+    Gist.create(
+      url: @result.response_body['html_url'],
+      question: @question,
+      user: @cuser
+    )
   end
 end
