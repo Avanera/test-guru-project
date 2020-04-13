@@ -47,7 +47,8 @@ class GistQuestionService
     Gist.create(
       url: @result.response_body['html_url'],
       question: @question,
-      user: @cuser
+      user: @cuser,
+      github_id: @result.response_body['id']
     )
   end
 end
