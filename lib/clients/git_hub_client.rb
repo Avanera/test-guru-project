@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class GitHubClient
-  ACCESS_TOKEN = '2d7d4b0bcfb33b7d0008a2910a784622b386cc8a'
+  GIST_ACCESS_TOKEN = ENV['GIST_ACCESS_TOKEN']
 
   def initialize
     @http_client = setup_http_client
@@ -14,6 +14,6 @@ class GitHubClient
   private
 
   def setup_http_client
-    Octokit::Client.new(access_token: ACCESS_TOKEN)
+    Octokit::Client.new(access_token: GIST_ACCESS_TOKEN)
   end
 end
