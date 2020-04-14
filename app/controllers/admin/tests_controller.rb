@@ -9,7 +9,7 @@ class Admin::TestsController < Admin::BaseController
   end
 
   def show;
-    cookies[:original_url] = request.url
+    cookies[:original_url] = request.url # save current URL to use it in link Back in Questions#show
   end
 
   def new
