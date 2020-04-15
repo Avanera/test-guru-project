@@ -1,30 +1,33 @@
 # frozen_string_literal: true
 
 class GistQuestionService
-  def initialize(question, current_user, client: nil)
+  def initialize(question, client: nil)
     @question = question
-    @cuser = current_user
     @test = @question.test
     @client = client || GitHubClient.new
-    @result = OpenStruct.new(success: true, response_body: nil)
+    @result = OpenStruct.new(response_body: nil, error: nil, success: true)
   end
 
   def call
     begin
       @result.response_body = @client.create_gist(gist_params)
     rescue StandardError => e
+      @result.error = e
       @result.success = false
       Rails.logger.error(
         "An error occured while calling #{self.class}. The original error was: #{e}"
       )
     end
 
-    create_gist_in_db if @result.success
-
     @result
   end
 
   private
+
+  def success?
+    created_status = 201
+    @client.last_response.status == created_status
+  end
 
   def gist_params
     {
@@ -41,14 +44,5 @@ class GistQuestionService
     content = [@question.body]
     content += @question.answers.pluck(:body)
     content.join("\n")
-  end
-
-  def create_gist_in_db
-    Gist.create(
-      url: @result.response_body['html_url'],
-      question: @question,
-      user: @cuser,
-      github_id: @result.response_body['id']
-    )
   end
 end
