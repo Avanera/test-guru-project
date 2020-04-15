@@ -19,10 +19,11 @@ class TestPassagesController < ApplicationController
   end
 
   def gist
-    service = GistQuestionService.new(@test_passage.current_question)
+    current_question = @test_passage.current_question
+    service = GistQuestionService.new(current_question)
     response_body = service.call
     if service.success?
-      create_gist_in_bd(response_body)
+      create_gist_in_bd(response_body, current_question, current_user)
 
       flash_options =
         { notice: t(
@@ -46,11 +47,11 @@ class TestPassagesController < ApplicationController
     @test_passage = TestPassage.find(params[:id])
   end
 
-  def create_gist_in_bd(response_body)
+  def create_gist_in_bd(response_body, question, user)
     Gist.create(
       url: response_body['html_url'],
-      question: @test_passage.current_question,
-      user: current_user,
+      question: question,
+      user: user,
       github_id: response_body['id']
     )
   end
