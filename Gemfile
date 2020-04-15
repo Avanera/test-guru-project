@@ -3,7 +3,6 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.6.5'
 
-gem 'dotenv-rails', groups: %i[development test] # Shim to load environment variables from .env into ENV in development
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 6.0.2', '>= 6.0.2.1'
 # Use sqlite3 as the database for Active Record
@@ -23,15 +22,16 @@ gem 'jbuilder', '~> 2.7'
 # Use Active Model has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
-gem 'devise', '~>4.0'
+gem 'devise', '~>4.0' # a flexible authentication solution
 
 # LOCALIZATION
 gem 'rails-i18n'
 
 # UI
 
-gem 'jquery-rails'
-gem 'bootstrap', '~> 4.4.1'
+gem 'jquery-rails' # to automate using jQuery with Rails
+gem 'bootstrap', '~> 4.4.1' # HTML, CSS, and JavaScript framework
+gem 'octicons_helper' # easily include svg octicons
 
 gem 'faraday' # NETWORKING
 gem 'octokit', '~> 4.0' # Official clients for the GitHub API
@@ -45,6 +45,7 @@ gem 'bootsnap', '>= 1.4.2', require: false
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  gem 'dotenv-rails' # Shim to load environment variables from .env into ENV in development
 end
 
 group :development do
