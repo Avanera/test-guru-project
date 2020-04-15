@@ -8,7 +8,9 @@ class Admin::TestsController < Admin::BaseController
     @tests = Test.all
   end
 
-  def show; end
+  def show;
+    cookies[:original_url] = request.url # save current URL to use it in link Back in Questions#show
+  end
 
   def new
     @test = Test.new

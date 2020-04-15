@@ -1,0 +1,11 @@
+<h1><%= t('.header') %></h1>
+
+<table border="1" cellpadding="7" cellspacing="0">
+  <tr>
+    <th><%= t('.question') %></th>
+    <th><%= t('.link_to_github') %></th>
+    <th><%= t('.email') %></th>
+  </tr>
+
+  <%= render @gists %>
+</table>

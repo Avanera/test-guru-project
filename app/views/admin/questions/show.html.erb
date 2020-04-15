@@ -1,7 +1,7 @@
 <h1><%= @question.test.title %> </h1>
 
 <p>
-  <%= @question.body %> 
+  <%= @question.body %>
 </p>
 
 <h2>Answers</h2>
@@ -17,4 +17,4 @@
             admin_question_path(@question),
             method: :delete,
             data: { confirm: 'Are you sure?'} %> |
-<%= link_to 'Back', admin_test_path(@question.test) %>
+<%= link_to 'Back', cookies[:original_url] %> <!-- leads to admin/test/:id or admin/gists -->

@@ -3,6 +3,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.6.5'
 
+gem 'dotenv-rails', groups: %i[development test] # Shim to load environment variables from .env into ENV in development
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 6.0.2', '>= 6.0.2.1'
 # Use sqlite3 as the database for Active Record
@@ -31,6 +32,9 @@ gem 'rails-i18n'
 
 gem 'jquery-rails'
 gem 'bootstrap', '~> 4.4.1'
+
+gem 'faraday' # NETWORKING
+gem 'octokit', '~> 4.0' # Official clients for the GitHub API
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
