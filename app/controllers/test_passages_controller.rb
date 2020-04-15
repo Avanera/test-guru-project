@@ -19,10 +19,25 @@ class TestPassagesController < ApplicationController
   end
 
   def gist
-    @result = GistQuestionService.new(@test_passage.current_question).call
-    create_gist_in_bd
-    flash_notice
-    redirect_to @test_passage, @flash_options
+    service = GistQuestionService.new(@test_passage.current_question)
+    response_body = service.call
+    if service.success?
+      create_gist_in_bd(response_body)
+
+      flash_options =
+        { notice: t(
+          '.success',
+          gist_url: ActionController::Base.helpers.link_to(
+            t('.gist_link'),
+            response_body['html_url'],
+            target: :blank
+          )
+        ) }
+    else
+      flash_options = { alert: t('.failure') }
+    end
+
+    redirect_to @test_passage, flash_options
   end
 
   private
@@ -31,28 +46,12 @@ class TestPassagesController < ApplicationController
     @test_passage = TestPassage.find(params[:id])
   end
 
-  def flash_notice
-    @flash_options =
-      if @result.success
-        { notice: t(
-          '.success',
-          gist_url: ActionController::Base.helpers.link_to(
-            t('.gist_link'),
-            @result.response_body['html_url'],
-            target: :blank
-          )
-        ) }
-      else
-        { alert: t('.failure') }
-      end
-  end
-
-  def create_gist_in_bd
+  def create_gist_in_bd(response_body)
     Gist.create(
-      url: @result.response_body['html_url'],
+      url: response_body['html_url'],
       question: @test_passage.current_question,
       user: current_user,
-      github_id: @result.response_body['id']
+      github_id: response_body['id']
     )
   end
 end
