@@ -11,7 +11,6 @@ class GistQuestionService
     @client.create_gist(gist_params)
   rescue StandardError => e
     Rails.logger.error(
-      ######################## no message in log
       "An error occured while calling #{self.class}. The original error was: #{e}"
     )
   end
