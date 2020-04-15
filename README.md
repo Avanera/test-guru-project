@@ -5,8 +5,14 @@ Test-Guru is a program for passing tests.
 
 Entities:
 Test
-Participant
-Administrator
+Question
+Answer
+TestPassage
+Gist
+User
+Admin
+
+Add the content of the file .env.sample to .env and add necessary keys
 
 
 This README would normally document whatever steps are necessary to get the
