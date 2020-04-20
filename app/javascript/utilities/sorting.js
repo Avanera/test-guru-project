@@ -32,8 +32,8 @@ function sortRowsByTitle() {
 
   var sortedTable = document.createElement('table')
 
-  sortedTable.classList.add('table')
-  sortedTable.appendChild(rows[0])
+  sortedTable.classList.add('table', 'table-hover')
+  sortedTable.appendChild(rows[0]).className = "thead-dark"
 
   for (var i = 0; i < sortedRows.length; i++) {
     sortedTable.appendChild(sortedRows[i])
