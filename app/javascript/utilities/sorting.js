@@ -31,12 +31,16 @@ function sortRowsByTitle() {
   }
 
   var sortedTable = document.createElement('table')
-
   sortedTable.classList.add('table', 'table-hover')
-  sortedTable.appendChild(rows[0]).className = "thead-dark"
+
+  var thead = sortedTable.createTHead()
+  thead.classList.add('thead-dark')
+  thead.appendChild(rows[0])
+
+  var tbody = sortedTable.createTBody()
 
   for (var i = 0; i < sortedRows.length; i++) {
-    sortedTable.appendChild(sortedRows[i])
+    tbody.appendChild(sortedRows[i])
   }
 
   table.parentNode.replaceChild(sortedTable, table)
