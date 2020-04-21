@@ -1,22 +1,32 @@
 document.addEventListener('turbolinks:load', function(){
-  var control = document.getElementById('user_password_confirmation')
+  var pass = document.getElementById('user_password')
+  var passConf = document.getElementById('user_password_confirmation')
 
-  control.addEventListener('input', checkPasswordMatch)
+  // check if the elements exist on page, to add EventListener only on /sign_up
+  if(pass && passConf){
+    passConf.addEventListener('input', checkPasswordMatch)
+  }
 })
 
 
 function checkPasswordMatch(){
-  var pass = document.getElementById('user_password').value
-  var passConf = document.getElementById('user_password_confirmation').value
+  var pass = document.getElementById('user_password')
+  var passConf = document.getElementById('user_password_confirmation')
+  var octIconX = document.querySelector('.octicon-x')
+  var octIconCheck = document.querySelector('.octicon-check')
 
-  if (passConf.length == 0){
-    document.querySelector('.octicon-x').classList.add('hide')
-    document.querySelector('.octicon-check').classList.add('hide')
-  } else if (pass === passConf){
-    document.querySelector('.octicon-x').classList.add('hide')
-    document.querySelector('.octicon-check').classList.remove('hide')
-  } else {
-    document.querySelector('.octicon-check').classList.add('hide')
-    document.querySelector('.octicon-x').classList.remove('hide')
+  if (passConf.value.length == 0){
+    octIconX.classList.add('hide')
+    octIconCheck.classList.add('hide')
+    return
   }
+
+  if (pass.value === passConf.value){
+    octIconX.classList.add('hide')
+    octIconCheck.classList.remove('hide')
+    return
+  }
+
+  octIconCheck.classList.add('hide')
+  octIconX.classList.remove('hide')
 }

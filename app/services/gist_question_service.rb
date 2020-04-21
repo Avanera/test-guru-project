@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 class GistQuestionService
+  CREATED_STATUS = 201
+
   def initialize(question, client: nil)
     @question = question
     @test = @question.test
@@ -16,8 +18,7 @@ class GistQuestionService
   end
 
   def success?
-    created_status = 201
-    @client.last_response.status == created_status
+    @client.last_response.status == CREATED_STATUS
   end
 
   private
