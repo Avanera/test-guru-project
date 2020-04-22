@@ -1,23 +1,24 @@
-<div class="row justify-content-center mt-3" >
-  <div class="col col-md-8">
-    <h1>
-      <%= t('.header') %>
-      <br><small class="text-muted lead"><%= t('.small_header') %></small>
-    </h1>
-    <div class="table-responsive">
-      <table class="table table-hover table-sm">
-        <caption><%= t('.header') %></caption>
-        <thead class="thead-dark">
-          <tr>
-            <th scope="col"><%= t('helpers.label.test.title') %></th>
-            <th scope="col"><%= t('helpers.label.test.level') %></th>
-            <th scope="col"><%= t('tests.questions_number') %></th>
-            <th scope="col"><%= t('tests.actions') %></th>
-          </tr>
-        </thead>
+<h1>
+  <%= t('.header') %>
+  <br><small class="text-muted lead"><%= t('.small_header') %></small>
+</h1>
 
-        <%= render @tests %>
-      </table>
-    </div>
-  </div>
+<div class="table-responsive">
+  <table class="table table-hover">
+    <caption><%= t('.header') %></caption>
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col" class="js-sort-by-title pointer">
+          <%= t('helpers.label.test.title') %>
+          <%= octicon 'arrow-up', class: 'text-success hide' %>
+            <%= octicon 'arrow-down', class: 'text-success hide' %>
+        </th>
+        <th scope="col"><%= t('helpers.label.test.level') %></th>
+        <th scope="col"><%= t('tests.questions_number') %></th>
+        <th scope="col"><%= t('tests.actions') %></th>
+      </tr>
+    </thead>
+
+    <%= render @tests %>
+  </table>
 </div>

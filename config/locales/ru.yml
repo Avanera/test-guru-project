@@ -36,7 +36,8 @@ ru:
         first_name: "Имя"
         last_name: "Фамилия"
         email: "Электронная почта"
-        password: "Пароль (минимум 6 знаков)"
+        password: "Пароль"
+        minimum_chars: "(минимум %{count} знаков)"
         password_confirmation: "Подтвердите пароль:"
         current_password: "Текущий пароль"
 

@@ -21,14 +21,16 @@
   <div class="field">
     <%= f.label :password %>
     <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
+    <em><%= t('helpers.label.user.minimum_chars', count: @minimum_password_length) %></em>
+    <% end %><br>
     <%= f.password_field :password, autocomplete: "new-password" %>
   </div>
 
   <div class="field">
     <%= f.label :password_confirmation %><br />
     <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+      <%= octicon "x", class: 'text-danger hide' %>
+      <%= octicon "check", class: 'text-success hide' %>
   </div>
 
   <div class="actions">

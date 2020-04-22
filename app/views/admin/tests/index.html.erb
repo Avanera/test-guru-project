@@ -8,13 +8,19 @@
   <h3><%= link_to t('.new_test'), new_admin_test_path %></h3>
 </p>
 
-<table border="1" cellpadding="7" cellspacing="0">
-  <tr>
-    <th><%= t('helpers.label.test.title') %></th>
-    <th><%= t('helpers.label.test.level') %></th>
-    <th><%= t('tests.questions_number') %></th>
-    <th colspan="4"><%= t('tests.actions') %></th>
-  </tr>
+<table class="table table-hover">
+  <thead class="thead-dark">
+    <tr>
+      <th class="js-sort-by-title pointer">
+        <%= t('helpers.label.test.title') %>
+        <%= octicon 'arrow-up', class: 'text-success hide' %>
+        <%= octicon 'arrow-down', class: 'text-success hide' %>
+      </th>
+      <th><%= t('helpers.label.test.level') %></th>
+      <th><%= t('tests.questions_number') %></th>
+      <th colspan="4"><%= t('tests.actions') %></th>
+    </tr>
+  </thead>
 
   <%= render @tests %>
 </table>
