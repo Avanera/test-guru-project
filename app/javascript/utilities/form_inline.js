@@ -1,11 +1,5 @@
-document.addEventListener('turbolinks:load', function(){
-  var controls = document.querySelectorAll('.js-form-inline-link')
-
-  if (controls.length) {
-    for (var i = 0; i < controls.length; i++) {
-      controls[i].addEventListener('click', formInlineLinkHandler)
-    }
-  }
+document.addEventListener('turbolinks:load', function() {
+  $('.js-form-inline-link').on('click', formInlineLinkHandler)
 
   var errors = document.querySelector('.js-resource-errors')
 
@@ -22,18 +16,17 @@ function formInlineLinkHandler(event) {
   formInlineHandler(testId)
 }
 
- function formInlineHandler(testId){
+function formInlineHandler(testId){
   var link = document.querySelector('.js-form-inline-link[data-test-id="' + testId + '"]')
-  var testTitle = document.querySelector('.js-test-title[data-test-id="' + testId + '"]')
-  var formInline = document.querySelector('.form-inline[data-test-id="' + testId + '"]')
+  var $testTitle = $('.js-test-title[data-test-id="' + testId + '"]')
+  var $formInline = $('.js-form-inline[data-test-id="' + testId + '"]')
 
-  if (formInline.classList.contains('hide')){
-    testTitle.classList.add('hide')
-    formInline.classList.remove('hide')
+  $formInline.toggle()
+  $testTitle.toggle()
+
+  if ($formInline.is(':visible')) {
     link.textContent = 'Cancel'
   } else {
-    testTitle.classList.remove('hide')
-    formInline.classList.add('hide')
     link.textContent = 'Edit'
   }
- }
+}
