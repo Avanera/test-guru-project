@@ -21,6 +21,8 @@ function formInlineHandler(testId){
   var $testTitle = $('.js-test-title[data-test-id="' + testId + '"]')
   var $formInline = $('.js-form-inline[data-test-id="' + testId + '"]')
 
+  if (link == null){ return }
+
   $formInline.toggle()
   $testTitle.toggle()
 
