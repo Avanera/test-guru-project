@@ -7,10 +7,8 @@ Rails.application.routes.draw do
 
   delete :logout, to: 'sessions#destroy'
 
-  resources :tests do
-    member do
-      post :start
-    end
+  resources :tests, only: :index do
+    post :start, on: :member
   end
 
   # GET /test_passages/101/result
@@ -25,9 +23,11 @@ Rails.application.routes.draw do
     root 'tests#index'
     resources :gists, only: :index
     resources :tests do
+      patch :update_inline, on: :member
+
       resources :questions, shallow: true, except: :index do
-      resources :answers, shallow: true
-    end
+        resources :answers, shallow: true
+      end
     end
   end
 

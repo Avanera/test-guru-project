@@ -93,6 +93,8 @@ en:
         questions: "Questions"
       edit:
         edit_test: "Edit %{title} test"
+      form_inline:
+        submit: "OK"
     gists:
       index:
         header: "Gists List"

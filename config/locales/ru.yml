@@ -65,6 +65,8 @@ ru:
         questions: "Вопросы"
       edit:
         edit_test: "Изменение %{title} Теста"
+      form_inline:
+        submit: "OK"
     gists:
       index:
         header: "Список всех Gist"
