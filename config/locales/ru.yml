@@ -41,14 +41,6 @@ ru:
         password_confirmation: "Подтвердите пароль:"
         current_password: "Текущий пароль"
 
-  shared:
-    errors:
-      header:
-        few: "Обнаружено %{count} ошибки"
-        many: "Обнаружено %{count} ошибок"
-        one: "Обнаружена %{count} ошибка"
-        other: "Обнаружено %{count} ошибки"
-
   admin:
     tests:
       create:
@@ -126,9 +118,10 @@ ru:
     delete: "Удалить"
     confirm: "Вы уверены?"
     back: "Назад"
-
-  # test_levels:
-  #   0: новичок
-  #   1: легкий
-  #   2: продвинутый
-  #   3: сложный
+    cancel: "Отменить"
+    errors:
+      header:
+        few: "Обнаружено %{count} ошибки"
+        many: "Обнаружено %{count} ошибок"
+        one: "Обнаружена %{count} ошибка"
+        other: "Обнаружено %{count} ошибки"

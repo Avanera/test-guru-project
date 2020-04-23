@@ -71,11 +71,6 @@ en:
         minimum_chars: "(%{count} characters minimum)"
         password_confirmation: "Password confirmation"
         current_password: "Current password"
-  shared:
-    errors:
-      header:
-        one: "%{count} error detected"
-        other: "%{count} errors detected"
 
   admin:
     tests:
@@ -154,3 +149,8 @@ en:
     delete: "Delete"
     confirm: "Are you sure?"
     back: "Back"
+    cancel: "Cancel"
+    errors:
+      header:
+        one: "%{count} error detected"
+        other: "%{count} errors detected"
