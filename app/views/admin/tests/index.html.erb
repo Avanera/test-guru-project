@@ -8,6 +8,8 @@
   <h3><%= link_to t('.new_test'), new_admin_test_path %></h3>
 </p>
 
+<%= render 'shared/errors', resource: @test %>
+
 <table class="table table-hover">
   <thead class="thead-dark">
     <tr>
