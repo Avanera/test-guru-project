@@ -4,6 +4,7 @@ ru:
   admin_panel: 'Панель администратора'
   welcome: 'Привет, гуру '
   welcome_html: 'Привет, гуру <b>%{name}</b>'
+  contact_form: "Форма обратной связи"
   logout: 'Выйти'
   login: 'Войти'
   signup: 'Зарегистрироваться'
@@ -84,6 +85,10 @@ ru:
       gist_link: "Ссылка на Gist"
       description: "Вопрос о %{title} из приложения TestGuru"
       failure: "Во время сохранения Gist произошла ошибка."
+
+  contacts:
+    create:
+      success: 'Ваше сообщение отправлено'
 
   tests_mailer:
     completed_test:
