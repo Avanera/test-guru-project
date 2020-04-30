@@ -18,7 +18,7 @@ class GistQuestionService
   end
 
   def success?
-    @client.last_response.status == CREATED_STATUS
+    @client.last_response.status == CREATED_STATUS if @client.last_response
   end
 
   private
