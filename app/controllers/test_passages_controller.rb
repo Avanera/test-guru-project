@@ -14,9 +14,15 @@ class TestPassagesController < ApplicationController
     if @test_passage.completed?
       TestsMailer.completed_test(@test_passage).deliver_now
       redirect_to result_test_passage_path(@test_passage)
-    else
-      render :show
+      return
     end
+
+    if @test_passage.current_question.answers.empty?
+      render plain: 'This question has no answers yet'
+      return
+    end
+
+    render :show
   end
 
   def gist
