@@ -1,9 +1,10 @@
 class TestPassagesController < ApplicationController
-
   before_action :authenticate_user!
   before_action :set_test_passage, only: %i[show update result gist]
 
-  def show; end
+  def show
+    @test_passage.current_question ? (render "show") : (render plain: 'This test has no questions yet')
+  end
 
   def result; end
 
