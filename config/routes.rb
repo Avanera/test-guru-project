@@ -7,6 +7,9 @@ Rails.application.routes.draw do
 
   delete :logout, to: 'sessions#destroy'
 
+  get '/badges', to: 'badges#index'
+  get '/user_badges', to: 'badges#user_badges'
+
   resources :tests, only: :index do
     post :start, on: :member
   end
@@ -22,6 +25,7 @@ Rails.application.routes.draw do
   namespace :admin do
     root 'tests#index'
     resources :gists, only: :index
+    resources :badges
     resources :tests do
       patch :update_inline, on: :member
 
