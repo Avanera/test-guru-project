@@ -1,0 +1,11 @@
+<p>
+  <%= image_tag(badge.image) %>
+  <%= badge.title %><br>
+  <%= link_to 'Edit',
+                  edit_admin_badge_path(badge),
+                  data: { badge_id: badge.id} %>
+  <%= link_to 'Delete',
+              admin_badge_path(badge),
+              method: :delete,
+              data: { confirm: "Are you sure?"} %>
+</p>
