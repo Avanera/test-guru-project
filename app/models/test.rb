@@ -16,6 +16,8 @@ class Test < ApplicationRecord
 
   scope :find_by_category_title, -> (category_title) { joins(:category).where(categories: { title: category_title }) }
 
+  scope :find_all_ready_tests, -> { joins(:questions => :answers).where(:questions => { answers: {correct: true }}) }
+
   def self.titles_of_category(category_title)
     find_by_category_title(category_title).order(title: :desc).pluck(:title)
   end
