@@ -1,7 +1,7 @@
 class Test < ApplicationRecord
-  has_many :test_passages
+  has_many :test_passages, dependent: :nullify
   has_many :users, through: :test_passages
-  has_many :questions
+  has_many :questions, dependent: :nullify
   belongs_to :category, optional: true
   belongs_to :author, class_name: "User", foreign_key: 'user_id', optional: true
 
@@ -15,7 +15,9 @@ class Test < ApplicationRecord
   scope :hard, -> { where(level: (5..Float::INFINITY)) }
 
   scope :find_by_category_title, -> (category_title) { joins(:category).where(categories: { title: category_title }) }
-  
+
+  scope :find_all_ready_tests, -> { joins(:questions => :answers).where(:questions => { answers: {correct: true }}) }
+
   def self.titles_of_category(category_title)
     find_by_category_title(category_title).order(title: :desc).pluck(:title)
   end

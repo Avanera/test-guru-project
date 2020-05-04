@@ -6,7 +6,11 @@
 </div>
 
 <script type="text/javascript">
-  var percent = <%= ((@test_passage.test.questions.index(@test_passage.current_question) + 1).to_f / @test_passage.test.questions.count * 100).to_i %>
+  <% if @test_passage.current_question == @test_passage.test.questions[0] %>
+    var percent = 0
+  <% else %>
+  var percent = <%= (@test_passage.test.questions.index(@test_passage.current_question).to_f / @test_passage.test.questions.count * 100).to_i %>
+  <% end %>
   document.querySelector('.progress-bar').style.width = (percent + "%")
 </script>
 

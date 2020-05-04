@@ -24,9 +24,7 @@
         <%= t('welcome_html', name: current_user.first_name) %>
       </span>
     </li>
-    <li class="nav-item active">
-      <%= link_to t('logout'), destroy_user_session_path, method: :delete, class: 'nav-link' %>
-    </li>
+
     <li class="nav-item dropdown">
       <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
         <%= t('language') %>
@@ -35,6 +33,14 @@
         <%= link_to "English", { :lang=>'en' }, class: 'dropdown-item' %>
         <%= link_to "Русский", { :lang=>'ru' }, class: 'dropdown-item' %>
       </div>
+    </li>
+
+    <li class="nav-item active">
+      <%= link_to t('contact_form'), contact_path, class: 'nav-link' %>
+    </li>
+
+    <li class="nav-item active">
+      <%= link_to t('logout'), destroy_user_session_path, method: :delete, class: 'nav-link' %>
     </li>
   </ul>
 </div>

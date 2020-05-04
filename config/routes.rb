@@ -33,5 +33,8 @@ Rails.application.routes.draw do
 
   get '/tests/:category/:title', to: 'tests#search'
 
+  get '/contact', to: 'contacts#new'
+  post '/contact', to: 'contacts#create'
+
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

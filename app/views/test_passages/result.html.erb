@@ -1,5 +1,15 @@
 <h1><%= t('.header', title: @test_passage.test.title) %></h1>
 
-  <%= show_result %>
+<div class="progress-bar-container">
+  <div class="progress-bar" style="font-size:11px; text-align:left; color:#09083B">
+    Test passage progress
+  </div>
+</div>
+
+<script type="text/javascript">
+  document.querySelector('.progress-bar').style.width = "100%"
+</script>
+
+<%= show_result %>
 
 <%= link_to 'Back to all tests', tests_path %>

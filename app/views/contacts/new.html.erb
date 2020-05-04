@@ -1,0 +1,7 @@
+<h1>Contact Form</h1>
+
+<%= form_with(url: "/contact", method: "post", local: true) do %>
+  <%= label_tag(:contact_label, "Type your message:") %><br>
+  <textarea type="text" name="contact_field" id="contact_field" class="form-control" rows="6" ></textarea>
+  <%= submit_tag("Send") %>
+<% end %>
