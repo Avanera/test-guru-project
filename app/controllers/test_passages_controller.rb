@@ -2,21 +2,12 @@ class TestPassagesController < ApplicationController
   before_action :authenticate_user!
   before_action :set_test_passage, only: %i[show update result gist]
 
-  def show
-    if @test_passage.current_question == nil
-      render plain: 'This test has no questions yet. The test is not ready. Please try another one.'
-      return
-    end
+  def show; end
 
-    if @test_passage.current_question.answers.correct.empty?
-      render plain: 'This question has no correct answers. The test is not ready. Please try another one.'
-      return
-    end
-
-    render "show"
+  def result
+    current_user.badges.push(Badge.find(2))
+    flash.notice = "You were given a new badge. #{ActionController::Base.helpers.link_to 'Watch now', user_badges_path}"
   end
-
-  def result; end
 
   def update
     @test_passage.accept!(params[:answer_ids])
@@ -24,11 +15,6 @@ class TestPassagesController < ApplicationController
     if @test_passage.completed?
       TestsMailer.completed_test(@test_passage).deliver_now
       redirect_to result_test_passage_path(@test_passage)
-      return
-    end
-
-    if @test_passage.current_question.answers.empty?
-      render plain: 'This question has no answers yet. The test is not ready. Please try another one.'
       return
     end
 
