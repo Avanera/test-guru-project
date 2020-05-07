@@ -22,12 +22,12 @@ class BadgesAwardService
 
   def category_complete?
     category_id = @test_passage.test.category_id
-    successful_test? && (@user.tests.where("category_id = ?", category_id).distinct.count == Test.where("category_id = ?", category_id).distinct.count)
+    successful_test? && (@user.tests.where("category_id = ?", category_id).distinct.count == Test.ready.where("category_id = ?", category_id).distinct.count)
   end
 
   def level_complete?
     level = @test_passage.test.level
-    successful_test? && (@user.tests.where("level = ?", level).distinct.count == Test.where("level = ?", level).distinct.count)
+    successful_test? && (@user.tests.where("level = ?", level).distinct.count == Test.ready.where("level = ?", level).distinct.count)
   end
 
   def first_try?
