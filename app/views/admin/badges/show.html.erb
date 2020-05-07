@@ -1,5 +1,8 @@
 <p>
-  <%= image_tag(@badge.image, size: "60x60") %>
-  <font size="5"><%= @badge.title %></font>
+  <%= image_tag(@badge.image, size: "60x60") %><br>
+  <font size="5">Title: <%= @badge.title %></font><br>
+  <font size="5">Rule: <%= @badge.rule_description %></font><br>
 </p>
-<%= link_to "Back", admin_badges_path %>
+<%= link_to "View all badges", admin_badges_path %> |
+<%= link_to "Create new badge", new_admin_badge_path %>
+

@@ -7,8 +7,8 @@
   </p>
 
   <p>
-    <%= form.label :rule_name %><br>
-    <%= form.select :rule_name, options_for_select(Badge::BADGES_AWARD), prompt: true %>
+    <%= form.label :rule %><br>
+    <%= form.select :rule, options_for_select(Badge::BADGES_AWARD.map{|key, value| [value, key]}), prompt: true %>
   </p>
 
   <p>

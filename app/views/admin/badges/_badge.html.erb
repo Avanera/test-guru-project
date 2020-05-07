@@ -1,6 +1,8 @@
 <p>
   <%= image_tag(badge.image, size: "60x60") %>
-  <font size="5"><%= badge.title %></font><br>
+  <font size="5">Title: <%= badge.title %>.</font>
+  <font size="5">To get this badge you should <%= badge.rule_description %></font><br>
+  <%= link_to 'Show', admin_badge_path(badge) %>
   <%= link_to 'Edit',
                   edit_admin_badge_path(badge),
                   data: { badge_id: badge.id} %>

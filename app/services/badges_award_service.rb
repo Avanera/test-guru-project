@@ -6,7 +6,7 @@ class BadgesAwardService
 
   def call
     Badge.all.each do |badge|
-      reward(badge) if send("#{badge.rule_name}?")
+      reward(badge) if send("#{badge.rule}?")
     end
   end
 

@@ -56,8 +56,7 @@ ActiveRecord::Schema.define(version: 2020_05_04_110812) do
 
   create_table "badges", force: :cascade do |t|
     t.string "title"
-    t.string "rule_name"
-    t.string "rule_value"
+    t.string "rule"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
