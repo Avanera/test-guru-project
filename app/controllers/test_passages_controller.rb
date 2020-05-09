@@ -4,15 +4,21 @@ class TestPassagesController < ApplicationController
 
   def show; end
 
-  def result
-  end
+  def result; end
 
   def update
     @test_passage.accept!(params[:answer_ids])
 
+    if @test_passage.success?
+      service = BadgesAwardService.new(@test_passage)
+      service.call
+      if service.awarded?
+        flash.notice = "You were given a new badge.
+                        #{ActionController::Base.helpers.link_to 'Watch now', user_badges_path}"
+      end
+    end
+
     if @test_passage.completed?
-      BadgesAwardService.new(@test_passage).call
-      #flash.notice = "You were given a new badge. #{ActionController::Base.helpers.link_to 'Watch now', user_badges_path}"
       TestsMailer.completed_test(@test_passage).deliver_now
       redirect_to result_test_passage_path(@test_passage)
       return

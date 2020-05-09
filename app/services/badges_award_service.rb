@@ -2,6 +2,7 @@ class BadgesAwardService
   def initialize(test_passage)
     @test_passage = test_passage
     @user = test_passage.user
+    @badges_count = @user.badges.count
   end
 
   def call
@@ -10,27 +11,28 @@ class BadgesAwardService
     end
   end
 
+  def awarded?
+    @badges_new_count - @badges_count >= 1
+  end
+
   private
 
   def reward(badge)
     @user.badges.push(badge)
-  end
-
-  def successful_test?
-    @test_passage.success?
+    @badges_new_count = @badges_count + 1
   end
 
   def category_complete?
     category_id = @test_passage.test.category_id
-    successful_test? && (@user.tests.where("category_id = ?", category_id).distinct.count == Test.ready.where("category_id = ?", category_id).distinct.count)
+    @user.tests.where('category_id = ?', category_id).distinct.count == Test.ready.where('category_id = ?', category_id).distinct.count
   end
 
   def level_complete?
     level = @test_passage.test.level
-    successful_test? && (@user.tests.where("level = ?", level).distinct.count == Test.ready.where("level = ?", level).distinct.count)
+    @user.tests.where('level = ?', level).distinct.count == Test.ready.where('level = ?', level).distinct.count
   end
 
   def first_try?
-    successful_test? && (@user.tests.where("test_id = ?", @test_passage.test_id).count == 1)
+    @user.tests.where('test_id = ?', @test_passage.test_id).count == 1
   end
 end

@@ -3,8 +3,7 @@ class Badge < ApplicationRecord
   BADGES_AWARD = {
     category_complete: 'pass all tests of any certain category',
     first_try: 'pass any test on the first try',
-    level_complete: 'pass all tests of any certain level',
-    successful_test: 'pass any test sucessfully'
+    level_complete: 'pass all tests of any certain level'
   }.freeze
 
   has_many :badge_users
