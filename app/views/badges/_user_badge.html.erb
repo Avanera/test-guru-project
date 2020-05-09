@@ -1,2 +1,2 @@
-<%= image_tag(user_badge.image, size: "60x60") %>
+<%= image_tag(user_badge.image, size: "60x60") if user_badge.image.attached? %>
 <font size="5"><%= user_badge.title %></font>
