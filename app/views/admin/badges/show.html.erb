@@ -1,7 +1,5 @@
 <p>
-  <%= image_tag(@badge.image, size: "60x60") if @badge.image.attached? %><br>
-  <font size="5">Title: <%= @badge.title %></font><br>
-  <font size="5">Rule: <%= @badge.rule_description %></font><br>
+  <%= render 'badges/badge', badge: @badge %>
 </p>
 <%= link_to "View all badges", admin_badges_path %> |
 <%= link_to "Create new badge", new_admin_badge_path %>

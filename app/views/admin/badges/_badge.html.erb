@@ -1,7 +1,6 @@
 <p>
-  <%= image_tag(badge.image, size: "60x60") if badge.image.attached? %>
-  <font size="5">Title: <%= badge.title %>.</font>
-  <font size="5">To get this badge you should <%= badge.rule_description %></font><br>
+  <%= render 'badges/badge', badge: badge %>
+
   <%= link_to 'Show', admin_badge_path(badge) %>
   <%= link_to 'Edit',
                   edit_admin_badge_path(badge),
