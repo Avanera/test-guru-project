@@ -2,7 +2,6 @@ class BadgesAwardService
   def initialize(test_passage)
     @test_passage = test_passage
     @user = test_passage.user
-    @badges_count = @user.badges.count
   end
 
   def call
@@ -12,14 +11,14 @@ class BadgesAwardService
   end
 
   def awarded?
-    @badges_new_count - @badges_count >= 1
+    @badge
   end
 
   private
 
   def reward(badge)
     @user.badges.push(badge)
-    @badges_new_count = @badges_count + 1
+    @badge = badge
   end
 
   def category_complete?
