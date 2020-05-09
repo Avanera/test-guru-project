@@ -5,7 +5,7 @@ class TestsController < ApplicationController
   #rescue_from ActiveRecord::RecordNotFound, with: :rescue_with_test_not_found
 
   def index
-    @tests = Test.all
+    @tests = Test.ready
   end
 
   def start
@@ -18,5 +18,4 @@ class TestsController < ApplicationController
   def set_test
     @test = Test.find(params[:id])
   end
-
 end

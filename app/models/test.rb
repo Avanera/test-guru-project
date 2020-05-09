@@ -16,7 +16,14 @@ class Test < ApplicationRecord
 
   scope :find_by_category_title, -> (category_title) { joins(:category).where(categories: { title: category_title }) }
 
-  scope :find_all_ready_tests, -> { joins(:questions => :answers).where(:questions => { answers: {correct: true }}) }
+  scope :ready, lambda {
+    unready_ids =
+      Question.distinct.left_outer_joins(:answers).group(:id)
+              .having('EVERY(answers.correct = false) OR COUNT(answers.id) = 0')
+              .pluck(:test_id)
+
+    joins(:questions).distinct.where.not(id: unready_ids)
+  }
 
   def self.titles_of_category(category_title)
     find_by_category_title(category_title).order(title: :desc).pluck(:title)

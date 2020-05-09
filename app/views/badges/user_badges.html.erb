@@ -1,0 +1,9 @@
+<h1> The badges you've earned </h1>
+
+<% if @user_badges.any? %>
+  <%= render @user_badges, as: :badge %>
+<% else %>
+  You have no badges yet.
+<% end %>
+
+<%= link_to 'Back', root_path %>

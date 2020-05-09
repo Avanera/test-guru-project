@@ -1,0 +1,7 @@
+<h1> All badges available here </h1>
+<p>
+  <h3><%= link_to 'New badge', new_admin_badge_path %></h3>
+</p>
+<%= render 'shared/errors', resource: @badge %>
+
+  <%= render @badges %>

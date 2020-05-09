@@ -12,8 +12,7 @@ module TestsHelper
       I18n.t('helpers.label.test.hero')
   end
 
-  def test_is_ready?(test)
-    test.questions.any? && test.questions.all?{|q| q.answers.correct.count > 0}
-  end
-
+  # def test_is_ready?(test)
+  #   test.questions.any? && test.questions.all? { |q| q.answers.correct.count.positive? }
+  # end
 end

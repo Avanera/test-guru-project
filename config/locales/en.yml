@@ -80,7 +80,8 @@ en:
       index:
         header: "Tricky tests"
         new_test: "Create new test"
-        gists_list: "Show all created Gists"
+        gists_list: "Gists"
+        badges_list: "Badges"
       new:
         header: "Create New Test"
       show:
@@ -105,6 +106,8 @@ en:
     index:
       header: "Tricky tests"
       small_header: "Have fun!"
+      badges_list: "View all badges available"
+      user_badges: "Your badges"
     error:
       not_found: 'Test was not found'
 
