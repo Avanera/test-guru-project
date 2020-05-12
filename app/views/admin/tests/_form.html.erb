@@ -16,5 +16,16 @@
     <%= form.collection_select :category_id, Category.all, :id, :title, prompt: true %>
   </p>
 
+If the test should have a timer, enter minutes and seconds for the timer:
+  <div class='form-row'>
+    <p>
+      <%= form.number_field :minutes, id: :minutes, placeholder: 'minutes', min: 0, max: 59 %>
+    </p>
+
+    <p>
+      <%= form.number_field :seconds, id: :seconds, placeholder: 'seconds', min: 0, max: 59 %>
+    </p>
+  </div>
+
   <p><%= form.submit %></p>
 <% end %>

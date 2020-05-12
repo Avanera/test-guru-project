@@ -16,6 +16,9 @@ class Admin::TestsController < Admin::BaseController
   end
 
   def create
+    params[:test][:timer] =
+      (params[:test][:minutes].to_i * 60) + (params[:test][:seconds].to_i)
+
     @test = current_user.created_tests.new(test_params)
 
     if @test.save
@@ -34,6 +37,9 @@ class Admin::TestsController < Admin::BaseController
   def edit; end
 
   def update
+    params[:test][:timer] =
+      (params[:test][:minutes].to_i * 60) + (params[:test][:seconds].to_i)
+
     if @test.update(test_params)
       redirect_to admin_test_path(@test)
     else
@@ -70,7 +76,7 @@ class Admin::TestsController < Admin::BaseController
   end
 
   def test_params
-    params.require(:test).permit(:title, :level, :category_id)
+    params.require(:test).permit(:title, :level, :category_id, :timer)
   end
 
   def rescue_with_test_not_found
