@@ -20,7 +20,6 @@ document.addEventListener('turbolinks:load', function() {
       if (totalSeconds > timer.dataset.timer){
         redirectToResultPage();
         function redirectToResultPage() {
-          // create a url with totalSeconds parameter
           window.location.href = timer.dataset.resultUrl;
         }
       }
