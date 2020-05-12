@@ -2,5 +2,6 @@
   <td><%= test.title %></td>
   <td><%= test_level(test) %></td>
   <td align="center"><%= test.questions.count %></td>
+  <td class="align-middle"><%= ActiveSupport::Duration.build(test.timer).inspect if test.timer %></td>
   <td><%= button_to t('tests.start'), start_test_path(test) %></td>
 </tbody>

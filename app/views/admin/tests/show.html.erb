@@ -4,6 +4,11 @@
 <p>
   <%= t('helpers.label.test.level') %>: <%= test_level(@test) %>
 </p>
+<% if @test.timer %>
+  <p>
+    Timer: <%= ActiveSupport::Duration.build(@test.timer).inspect %>
+  </p>
+<% end %>
 
 <h2><%= t('.questions') %></h2>
 
