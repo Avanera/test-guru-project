@@ -1,21 +1,11 @@
 document.addEventListener('turbolinks:load', function() {
-  var timer = document.querySelector('.timer')
-
+  var timer = document.querySelector('.timer');
   if (timer) {
-    var redirectTimeoutId = window.setTimeout(redirectToResultPage, timer.dataset.timer*1000)
-
-    function redirectToResultPage() {
-      window.location.href = timer.dataset.resultUrl ;
-      // + '?passage_time=' + timer.value +
-    }
-
-
     // count-up timer
-
     var localNow = new Date();
     // format: Mon May 11 2020 21:12:48 GMT+0700 (Krasnoyarsk Standard Time) {}
     var utcNow = new Date(localNow.getTime() + localNow.getTimezoneOffset() * 60000);
-    // format: Mon May 11 2020 14:12:48 GMT+0700
+    // format: Mon May 11 2020 14:12:48
     var now = utcNow.getTime(); // get milliseconds
 
     var localStartTime = new Date(parseInt(timer.dataset.startTime));
@@ -26,6 +16,14 @@ document.addEventListener('turbolinks:load', function() {
     var totalSeconds = parseInt((now - startTime)/1000); // get difference in seconds
     function countTimer() {
        ++totalSeconds;
+       // redirect when timer is out
+      if (totalSeconds > timer.dataset.timer){
+        redirectToResultPage();
+        function redirectToResultPage() {
+          // create a url with totalSeconds parameter
+          window.location.href = timer.dataset.resultUrl;
+        }
+      }
        var hour = Math.floor(totalSeconds /3600);
        var minute = Math.floor((totalSeconds - hour*3600)/60);
        var seconds = totalSeconds - (hour*3600 + minute*60);
