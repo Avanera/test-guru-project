@@ -11,6 +11,8 @@ class TestPassagesController < ApplicationController
   def update
     @test_passage.accept!(params[:answer_ids])
 
+    render(:show) and return if !@test_passage.completed?
+
     if @test_passage.success?
       service = BadgesAwardService.new(@test_passage)
       service.call
@@ -20,12 +22,7 @@ class TestPassagesController < ApplicationController
       end
     end
 
-    if @test_passage.completed?
-      redirect_to result_test_passage_path(@test_passage)
-      return
-    end
-
-    render :show
+    redirect_to result_test_passage_path(@test_passage)
   end
 
   def gist
