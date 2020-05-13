@@ -10,7 +10,7 @@ class TestPassage < ApplicationRecord
   before_validation :before_validation_set_next_question, on: :update
 
   def success?
-    percent_of_corrent_answers >= PASSAGE_PERCENTAGE_OF_CORRECT_ANSWERS
+    (percent_of_corrent_answers >= PASSAGE_PERCENTAGE_OF_CORRECT_ANSWERS) && (passage_time <= test.timer)
   end
 
   def percent_of_corrent_answers
@@ -25,7 +25,9 @@ class TestPassage < ApplicationRecord
     if correct_answer?(answer_ids)
       self.correct_questions += 1
     end
-    
+    passage_time = (Time.now.utc - created_at.utc).to_i
+    update_column(:passage_time, passage_time)
+
     save!
   end
 
