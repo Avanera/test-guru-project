@@ -10,7 +10,11 @@ class TestPassage < ApplicationRecord
   before_validation :before_validation_set_next_question, on: :update
 
   def success?
-    (percent_of_corrent_answers >= PASSAGE_PERCENTAGE_OF_CORRECT_ANSWERS) && (passage_time <= test.timer)
+    if test.timer
+      (percent_of_corrent_answers >= PASSAGE_PERCENTAGE_OF_CORRECT_ANSWERS) && (passage_time <= test.timer)
+    else
+      percent_of_corrent_answers >= PASSAGE_PERCENTAGE_OF_CORRECT_ANSWERS
+    end
   end
 
   def percent_of_corrent_answers
