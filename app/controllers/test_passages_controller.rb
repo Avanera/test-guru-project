@@ -11,18 +11,21 @@ class TestPassagesController < ApplicationController
   def update
     @test_passage.accept!(params[:answer_ids])
 
-    render(:show) and return if !@test_passage.completed?
-
-    if @test_passage.success?
-      service = BadgesAwardService.new(@test_passage)
-      service.call
-      if service.awarded?
-        flash.notice = "You were given a new badge.
-                        #{ActionController::Base.helpers.link_to 'Watch now', user_badges_path}"
+    if @test_passage.completed?
+      if @test_passage.success?
+        service = BadgesAwardService.new(@test_passage)
+        service.call
+        if service.awarded?
+          flash.notice = "You were given a new badge.
+                          #{ActionController::Base.helpers.link_to 'Watch now', user_badges_path}"
+        end
       end
+
+      redirect_to result_test_passage_path(@test_passage)
+      return
     end
 
-    redirect_to result_test_passage_path(@test_passage)
+    render :show
   end
 
   def gist
