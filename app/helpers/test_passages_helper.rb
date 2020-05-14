@@ -9,6 +9,10 @@ module TestPassagesHelper
 
   def result_message
     "Your result is #{@test_passage.percent_of_corrent_answers} %.
-    Passage time: #{ActiveSupport::Duration.build(@test_passage.passage_time).inspect}."
+    Passage time: #{human_passage_time(@test_passage)}."
+  end
+
+  def human_passage_time(test_passage)
+    ActiveSupport::Duration.build(test_passage.passage_time).inspect
   end
 end

@@ -6,7 +6,7 @@
 </p>
 <% if @test.timer %>
   <p>
-    Timer: <%= ActiveSupport::Duration.build(@test.timer).inspect %>
+    Timer: <%= human_timer(@test) %>
   </p>
 <% end %>
 
