@@ -1,4 +1,15 @@
 <h1>Passing the <%= @test_passage.test.title %> Test</h1>
+
+<% if @test_passage.test.timer %>
+  You should pass the test in <%= human_passage_time(@test_passage) %><br>
+  Current passage time:
+  <%= content_tag :div, '',
+                        class: "timer",
+                        data: { result_url: "/test_passages/#{@test_passage.id}/result",
+                        timer: @test_passage.test.timer,
+                        start_time: (@test_passage.created_at.to_f * 1000).to_i} %>
+<% end %>
+
 <div class="progress-bar-container">
   <div class="progress-bar" style="font-size:11px; text-align:left; color:#09083B">
     Test passage progress

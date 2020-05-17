@@ -12,6 +12,10 @@ module TestsHelper
       I18n.t('helpers.label.test.hero')
   end
 
+  def human_timer(test)
+    ActiveSupport::Duration.build(test.timer).inspect
+  end
+
   # def test_is_ready?(test)
   #   test.questions.any? && test.questions.all? { |q| q.answers.correct.count.positive? }
   # end

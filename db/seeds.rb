@@ -37,3 +37,7 @@ answer9 = Answer.create(body: "Trump", question_id: question3.id)
 question4 = Question.create(body: "What is a default value of a variable?", test_id: test1.id)
 answer10 = Answer.create(body: "nil", correct: true, question_id: question4.id)
 answer11 = Answer.create(body: "false", question_id: question4.id)
+
+badge1 = Badge.create(title: 'First badge', rule: 'category_complete')
+badge2 = Badge.create(title: 'Second badge', rule: 'level_complete')
+badge3 = Badge.create(title: 'Third badge', rule: 'first_try')
